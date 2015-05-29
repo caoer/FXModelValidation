@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <FXForms/FXForms.h>
-#import "FXModelValidation.h"
+#import "TMPModelValidation.h"
 
-@interface User : NSObject <FXForm, FXModelValidation>
+@interface User : NSObject <FXForm, TMPModelValidation>
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *password;

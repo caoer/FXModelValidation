@@ -1,4 +1,4 @@
 target :FXFormsExample do
 	pod 'FXForms'
-    # pod 'FXModelValidation'
+    # pod 'TMPModelValidation'
 end

@@ -25,21 +25,21 @@
     return @[
              // username, email and password are all required in "register" scenario
              @{
-                 FXModelValidatorAttributes : @[@"username", @"email", @"password"],
-                 FXModelValidatorType : @"required",
-                 FXModelValidatorOn: @[@"register"],
+                 TMPModelValidatorAttributes : @[@"username", @"email", @"password"],
+                 TMPModelValidatorType : @"required",
+                 TMPModelValidatorOn: @[@"register"],
                  },
              // username and password are required in "login" scenario
              @{
-                 FXModelValidatorAttributes : @[@"username", @"password"],
-                 FXModelValidatorType : @"required",
-                 FXModelValidatorOn: @[@"login"],
+                 TMPModelValidatorAttributes : @[@"username", @"password"],
+                 TMPModelValidatorType : @"required",
+                 TMPModelValidatorOn: @[@"login"],
                  },
              // email should be valid email address
              @{
-                 FXModelValidatorAttributes : @"email",
-                 FXModelValidatorType : @"email", 
-                 FXModelValidatorOn: @[@"register"],
+                 TMPModelValidatorAttributes : @"email",
+                 TMPModelValidatorType : @"email", 
+                 TMPModelValidatorOn: @[@"register"],
                  },
 
              ];

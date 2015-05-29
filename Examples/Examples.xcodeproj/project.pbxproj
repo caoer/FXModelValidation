@@ -7,34 +7,71 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09F688631B1838E300B58B0B /* TMPModelTrimFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F6883F1B1838E300B58B0B /* TMPModelTrimFilter.m */; };
+		09F688641B1838E300B58B0B /* TMPModelBooleanValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F688411B1838E300B58B0B /* TMPModelBooleanValidator.m */; };
+		09F688651B1838E300B58B0B /* TMPModelCompareValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F688431B1838E300B58B0B /* TMPModelCompareValidator.m */; };
+		09F688661B1838E300B58B0B /* TMPModelDefaultValueValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F688451B1838E300B58B0B /* TMPModelDefaultValueValidator.m */; };
+		09F688671B1838E300B58B0B /* TMPModelEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F688471B1838E300B58B0B /* TMPModelEmailValidator.m */; };
+		09F688681B1838E300B58B0B /* TMPModelFilterValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F688491B1838E300B58B0B /* TMPModelFilterValidator.m */; };
+		09F688691B1838E300B58B0B /* TMPModelInlineValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F6884B1B1838E300B58B0B /* TMPModelInlineValidator.m */; };
+		09F6886A1B1838E300B58B0B /* TMPModelNumberValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F6884D1B1838E300B58B0B /* TMPModelNumberValidator.m */; };
+		09F6886B1B1838E300B58B0B /* TMPModelRangeValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F6884F1B1838E300B58B0B /* TMPModelRangeValidator.m */; };
+		09F6886C1B1838E300B58B0B /* TMPModelRegExpValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F688511B1838E300B58B0B /* TMPModelRegExpValidator.m */; };
+		09F6886D1B1838E300B58B0B /* TMPModelRequiredValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F688531B1838E300B58B0B /* TMPModelRequiredValidator.m */; };
+		09F6886E1B1838E300B58B0B /* TMPModelSafeValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F688551B1838E300B58B0B /* TMPModelSafeValidator.m */; };
+		09F6886F1B1838E300B58B0B /* TMPModelStringValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F688571B1838E300B58B0B /* TMPModelStringValidator.m */; };
+		09F688701B1838E300B58B0B /* TMPModelUrlValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F688591B1838E300B58B0B /* TMPModelUrlValidator.m */; };
+		09F688711B1838E300B58B0B /* TMPModelValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F6885B1B1838E300B58B0B /* TMPModelValidator.m */; };
+		09F688721B1838E300B58B0B /* TMPModelObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F6885D1B1838E300B58B0B /* TMPModelObserver.m */; };
+		09F688731B1838E300B58B0B /* TMPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F6885F1B1838E300B58B0B /* TMPModel.m */; };
+		09F688741B1838E300B58B0B /* NSObject+TMPModelValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F688611B1838E300B58B0B /* NSObject+TMPModelValidation.m */; };
 		55901AFF1A1C823F0027C024 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55901AFE1A1C823F0027C024 /* main.m */; };
 		55901B021A1C823F0027C024 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55901B011A1C823F0027C024 /* AppDelegate.m */; };
 		55901B051A1C823F0027C024 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55901B041A1C823F0027C024 /* ViewController.m */; };
 		55901B081A1C823F0027C024 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55901B061A1C823F0027C024 /* Main.storyboard */; };
 		55901B0A1A1C823F0027C024 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55901B091A1C823F0027C024 /* Images.xcassets */; };
 		55901B221A1C84B10027C024 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 55901B211A1C84B10027C024 /* User.m */; };
-		55A64B3A1A1CF9C100346808 /* FXModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B141A1CF9C100346808 /* FXModel.m */; };
-		55A64B3B1A1CF9C100346808 /* FXModelObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B161A1CF9C100346808 /* FXModelObserver.m */; };
-		55A64B3C1A1CF9C100346808 /* NSObject+FXModelValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B191A1CF9C100346808 /* NSObject+FXModelValidation.m */; };
-		55A64B3D1A1CF9C100346808 /* FXModelTrimFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B1D1A1CF9C100346808 /* FXModelTrimFilter.m */; };
-		55A64B3E1A1CF9C100346808 /* FXModelBooleanValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B1F1A1CF9C100346808 /* FXModelBooleanValidator.m */; };
-		55A64B3F1A1CF9C100346808 /* FXModelCompareValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B211A1CF9C100346808 /* FXModelCompareValidator.m */; };
-		55A64B401A1CF9C100346808 /* FXModelDefaultValueValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B231A1CF9C100346808 /* FXModelDefaultValueValidator.m */; };
-		55A64B411A1CF9C100346808 /* FXModelEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B251A1CF9C100346808 /* FXModelEmailValidator.m */; };
-		55A64B421A1CF9C100346808 /* FXModelFilterValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B271A1CF9C100346808 /* FXModelFilterValidator.m */; };
-		55A64B431A1CF9C100346808 /* FXModelInlineValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B291A1CF9C100346808 /* FXModelInlineValidator.m */; };
-		55A64B441A1CF9C100346808 /* FXModelNumberValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B2B1A1CF9C100346808 /* FXModelNumberValidator.m */; };
-		55A64B451A1CF9C100346808 /* FXModelRangeValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B2D1A1CF9C100346808 /* FXModelRangeValidator.m */; };
-		55A64B461A1CF9C100346808 /* FXModelRegExpValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B2F1A1CF9C100346808 /* FXModelRegExpValidator.m */; };
-		55A64B471A1CF9C100346808 /* FXModelRequiredValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B311A1CF9C100346808 /* FXModelRequiredValidator.m */; };
-		55A64B481A1CF9C100346808 /* FXModelSafeValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B331A1CF9C100346808 /* FXModelSafeValidator.m */; };
-		55A64B491A1CF9C100346808 /* FXModelStringValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B351A1CF9C100346808 /* FXModelStringValidator.m */; };
-		55A64B4A1A1CF9C100346808 /* FXModelUrlValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B371A1CF9C100346808 /* FXModelUrlValidator.m */; };
-		55A64B4B1A1CF9C100346808 /* FXModelValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A64B391A1CF9C100346808 /* FXModelValidator.m */; };
 		D7DF35166134711CCA4D92DB /* libPods-FXFormsExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B946C9E1350ABDFB86909171 /* libPods-FXFormsExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09F6883E1B1838E300B58B0B /* TMPModelTrimFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelTrimFilter.h; sourceTree = "<group>"; };
+		09F6883F1B1838E300B58B0B /* TMPModelTrimFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelTrimFilter.m; sourceTree = "<group>"; };
+		09F688401B1838E300B58B0B /* TMPModelBooleanValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelBooleanValidator.h; sourceTree = "<group>"; };
+		09F688411B1838E300B58B0B /* TMPModelBooleanValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelBooleanValidator.m; sourceTree = "<group>"; };
+		09F688421B1838E300B58B0B /* TMPModelCompareValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelCompareValidator.h; sourceTree = "<group>"; };
+		09F688431B1838E300B58B0B /* TMPModelCompareValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelCompareValidator.m; sourceTree = "<group>"; };
+		09F688441B1838E300B58B0B /* TMPModelDefaultValueValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelDefaultValueValidator.h; sourceTree = "<group>"; };
+		09F688451B1838E300B58B0B /* TMPModelDefaultValueValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelDefaultValueValidator.m; sourceTree = "<group>"; };
+		09F688461B1838E300B58B0B /* TMPModelEmailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelEmailValidator.h; sourceTree = "<group>"; };
+		09F688471B1838E300B58B0B /* TMPModelEmailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelEmailValidator.m; sourceTree = "<group>"; };
+		09F688481B1838E300B58B0B /* TMPModelFilterValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelFilterValidator.h; sourceTree = "<group>"; };
+		09F688491B1838E300B58B0B /* TMPModelFilterValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelFilterValidator.m; sourceTree = "<group>"; };
+		09F6884A1B1838E300B58B0B /* TMPModelInlineValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelInlineValidator.h; sourceTree = "<group>"; };
+		09F6884B1B1838E300B58B0B /* TMPModelInlineValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelInlineValidator.m; sourceTree = "<group>"; };
+		09F6884C1B1838E300B58B0B /* TMPModelNumberValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelNumberValidator.h; sourceTree = "<group>"; };
+		09F6884D1B1838E300B58B0B /* TMPModelNumberValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelNumberValidator.m; sourceTree = "<group>"; };
+		09F6884E1B1838E300B58B0B /* TMPModelRangeValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelRangeValidator.h; sourceTree = "<group>"; };
+		09F6884F1B1838E300B58B0B /* TMPModelRangeValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelRangeValidator.m; sourceTree = "<group>"; };
+		09F688501B1838E300B58B0B /* TMPModelRegExpValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelRegExpValidator.h; sourceTree = "<group>"; };
+		09F688511B1838E300B58B0B /* TMPModelRegExpValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelRegExpValidator.m; sourceTree = "<group>"; };
+		09F688521B1838E300B58B0B /* TMPModelRequiredValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelRequiredValidator.h; sourceTree = "<group>"; };
+		09F688531B1838E300B58B0B /* TMPModelRequiredValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelRequiredValidator.m; sourceTree = "<group>"; };
+		09F688541B1838E300B58B0B /* TMPModelSafeValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelSafeValidator.h; sourceTree = "<group>"; };
+		09F688551B1838E300B58B0B /* TMPModelSafeValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelSafeValidator.m; sourceTree = "<group>"; };
+		09F688561B1838E300B58B0B /* TMPModelStringValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelStringValidator.h; sourceTree = "<group>"; };
+		09F688571B1838E300B58B0B /* TMPModelStringValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelStringValidator.m; sourceTree = "<group>"; };
+		09F688581B1838E300B58B0B /* TMPModelUrlValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelUrlValidator.h; sourceTree = "<group>"; };
+		09F688591B1838E300B58B0B /* TMPModelUrlValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelUrlValidator.m; sourceTree = "<group>"; };
+		09F6885A1B1838E300B58B0B /* TMPModelValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelValidator.h; sourceTree = "<group>"; };
+		09F6885B1B1838E300B58B0B /* TMPModelValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelValidator.m; sourceTree = "<group>"; };
+		09F6885C1B1838E300B58B0B /* TMPModelValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelValidation.h; sourceTree = "<group>"; };
+		09F6885D1B1838E300B58B0B /* TMPModelObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModelObserver.m; sourceTree = "<group>"; };
+		09F6885E1B1838E300B58B0B /* TMPModelObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModelObserver.h; sourceTree = "<group>"; };
+		09F6885F1B1838E300B58B0B /* TMPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPModel.m; sourceTree = "<group>"; };
+		09F688601B1838E300B58B0B /* TMPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPModel.h; sourceTree = "<group>"; };
+		09F688611B1838E300B58B0B /* NSObject+TMPModelValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TMPModelValidation.m"; sourceTree = "<group>"; };
+		09F688621B1838E300B58B0B /* NSObject+TMPModelValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TMPModelValidation.h"; sourceTree = "<group>"; };
 		55901AF91A1C823F0027C024 /* FXFormsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXFormsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55901AFD1A1C823F0027C024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55901AFE1A1C823F0027C024 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,43 +83,6 @@
 		55901B091A1C823F0027C024 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		55901B201A1C84B10027C024 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		55901B211A1C84B10027C024 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		55A64B131A1CF9C100346808 /* FXModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModel.h; sourceTree = "<group>"; };
-		55A64B141A1CF9C100346808 /* FXModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModel.m; sourceTree = "<group>"; };
-		55A64B151A1CF9C100346808 /* FXModelObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelObserver.h; sourceTree = "<group>"; };
-		55A64B161A1CF9C100346808 /* FXModelObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelObserver.m; sourceTree = "<group>"; };
-		55A64B171A1CF9C100346808 /* FXModelValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelValidation.h; sourceTree = "<group>"; };
-		55A64B181A1CF9C100346808 /* NSObject+FXModelValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FXModelValidation.h"; sourceTree = "<group>"; };
-		55A64B191A1CF9C100346808 /* NSObject+FXModelValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FXModelValidation.m"; sourceTree = "<group>"; };
-		55A64B1C1A1CF9C100346808 /* FXModelTrimFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelTrimFilter.h; sourceTree = "<group>"; };
-		55A64B1D1A1CF9C100346808 /* FXModelTrimFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelTrimFilter.m; sourceTree = "<group>"; };
-		55A64B1E1A1CF9C100346808 /* FXModelBooleanValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelBooleanValidator.h; sourceTree = "<group>"; };
-		55A64B1F1A1CF9C100346808 /* FXModelBooleanValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelBooleanValidator.m; sourceTree = "<group>"; };
-		55A64B201A1CF9C100346808 /* FXModelCompareValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelCompareValidator.h; sourceTree = "<group>"; };
-		55A64B211A1CF9C100346808 /* FXModelCompareValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelCompareValidator.m; sourceTree = "<group>"; };
-		55A64B221A1CF9C100346808 /* FXModelDefaultValueValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelDefaultValueValidator.h; sourceTree = "<group>"; };
-		55A64B231A1CF9C100346808 /* FXModelDefaultValueValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelDefaultValueValidator.m; sourceTree = "<group>"; };
-		55A64B241A1CF9C100346808 /* FXModelEmailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelEmailValidator.h; sourceTree = "<group>"; };
-		55A64B251A1CF9C100346808 /* FXModelEmailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelEmailValidator.m; sourceTree = "<group>"; };
-		55A64B261A1CF9C100346808 /* FXModelFilterValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelFilterValidator.h; sourceTree = "<group>"; };
-		55A64B271A1CF9C100346808 /* FXModelFilterValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelFilterValidator.m; sourceTree = "<group>"; };
-		55A64B281A1CF9C100346808 /* FXModelInlineValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelInlineValidator.h; sourceTree = "<group>"; };
-		55A64B291A1CF9C100346808 /* FXModelInlineValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelInlineValidator.m; sourceTree = "<group>"; };
-		55A64B2A1A1CF9C100346808 /* FXModelNumberValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelNumberValidator.h; sourceTree = "<group>"; };
-		55A64B2B1A1CF9C100346808 /* FXModelNumberValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelNumberValidator.m; sourceTree = "<group>"; };
-		55A64B2C1A1CF9C100346808 /* FXModelRangeValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelRangeValidator.h; sourceTree = "<group>"; };
-		55A64B2D1A1CF9C100346808 /* FXModelRangeValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelRangeValidator.m; sourceTree = "<group>"; };
-		55A64B2E1A1CF9C100346808 /* FXModelRegExpValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelRegExpValidator.h; sourceTree = "<group>"; };
-		55A64B2F1A1CF9C100346808 /* FXModelRegExpValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelRegExpValidator.m; sourceTree = "<group>"; };
-		55A64B301A1CF9C100346808 /* FXModelRequiredValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelRequiredValidator.h; sourceTree = "<group>"; };
-		55A64B311A1CF9C100346808 /* FXModelRequiredValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelRequiredValidator.m; sourceTree = "<group>"; };
-		55A64B321A1CF9C100346808 /* FXModelSafeValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelSafeValidator.h; sourceTree = "<group>"; };
-		55A64B331A1CF9C100346808 /* FXModelSafeValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelSafeValidator.m; sourceTree = "<group>"; };
-		55A64B341A1CF9C100346808 /* FXModelStringValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelStringValidator.h; sourceTree = "<group>"; };
-		55A64B351A1CF9C100346808 /* FXModelStringValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelStringValidator.m; sourceTree = "<group>"; };
-		55A64B361A1CF9C100346808 /* FXModelUrlValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelUrlValidator.h; sourceTree = "<group>"; };
-		55A64B371A1CF9C100346808 /* FXModelUrlValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelUrlValidator.m; sourceTree = "<group>"; };
-		55A64B381A1CF9C100346808 /* FXModelValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelValidator.h; sourceTree = "<group>"; };
-		55A64B391A1CF9C100346808 /* FXModelValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModelValidator.m; sourceTree = "<group>"; };
 		9023C31CB98B148452B58811 /* Pods-FXFormsExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FXFormsExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-FXFormsExample/Pods-FXFormsExample.release.xcconfig"; sourceTree = "<group>"; };
 		90CBF55414480B5EE4226A99 /* Pods-FXFormsExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FXFormsExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FXFormsExample/Pods-FXFormsExample.debug.xcconfig"; sourceTree = "<group>"; };
 		B946C9E1350ABDFB86909171 /* libPods-FXFormsExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FXFormsExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +100,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09F6883C1B1838E300B58B0B /* validators */ = {
+			isa = PBXGroup;
+			children = (
+				09F6883D1B1838E300B58B0B /* filters */,
+				09F688401B1838E300B58B0B /* TMPModelBooleanValidator.h */,
+				09F688411B1838E300B58B0B /* TMPModelBooleanValidator.m */,
+				09F688421B1838E300B58B0B /* TMPModelCompareValidator.h */,
+				09F688431B1838E300B58B0B /* TMPModelCompareValidator.m */,
+				09F688441B1838E300B58B0B /* TMPModelDefaultValueValidator.h */,
+				09F688451B1838E300B58B0B /* TMPModelDefaultValueValidator.m */,
+				09F688461B1838E300B58B0B /* TMPModelEmailValidator.h */,
+				09F688471B1838E300B58B0B /* TMPModelEmailValidator.m */,
+				09F688481B1838E300B58B0B /* TMPModelFilterValidator.h */,
+				09F688491B1838E300B58B0B /* TMPModelFilterValidator.m */,
+				09F6884A1B1838E300B58B0B /* TMPModelInlineValidator.h */,
+				09F6884B1B1838E300B58B0B /* TMPModelInlineValidator.m */,
+				09F6884C1B1838E300B58B0B /* TMPModelNumberValidator.h */,
+				09F6884D1B1838E300B58B0B /* TMPModelNumberValidator.m */,
+				09F6884E1B1838E300B58B0B /* TMPModelRangeValidator.h */,
+				09F6884F1B1838E300B58B0B /* TMPModelRangeValidator.m */,
+				09F688501B1838E300B58B0B /* TMPModelRegExpValidator.h */,
+				09F688511B1838E300B58B0B /* TMPModelRegExpValidator.m */,
+				09F688521B1838E300B58B0B /* TMPModelRequiredValidator.h */,
+				09F688531B1838E300B58B0B /* TMPModelRequiredValidator.m */,
+				09F688541B1838E300B58B0B /* TMPModelSafeValidator.h */,
+				09F688551B1838E300B58B0B /* TMPModelSafeValidator.m */,
+				09F688561B1838E300B58B0B /* TMPModelStringValidator.h */,
+				09F688571B1838E300B58B0B /* TMPModelStringValidator.m */,
+				09F688581B1838E300B58B0B /* TMPModelUrlValidator.h */,
+				09F688591B1838E300B58B0B /* TMPModelUrlValidator.m */,
+				09F6885A1B1838E300B58B0B /* TMPModelValidator.h */,
+				09F6885B1B1838E300B58B0B /* TMPModelValidator.m */,
+			);
+			path = validators;
+			sourceTree = "<group>";
+		};
+		09F6883D1B1838E300B58B0B /* filters */ = {
+			isa = PBXGroup;
+			children = (
+				09F6883E1B1838E300B58B0B /* TMPModelTrimFilter.h */,
+				09F6883F1B1838E300B58B0B /* TMPModelTrimFilter.m */,
+			);
+			path = filters;
+			sourceTree = "<group>";
+		};
 		55901AEE1A1C82300027C024 = {
 			isa = PBXGroup;
 			children = (
@@ -147,62 +192,17 @@
 		55A64B121A1CF9C100346808 /* FXModelValidation */ = {
 			isa = PBXGroup;
 			children = (
-				55A64B131A1CF9C100346808 /* FXModel.h */,
-				55A64B141A1CF9C100346808 /* FXModel.m */,
-				55A64B151A1CF9C100346808 /* FXModelObserver.h */,
-				55A64B161A1CF9C100346808 /* FXModelObserver.m */,
-				55A64B171A1CF9C100346808 /* FXModelValidation.h */,
-				55A64B181A1CF9C100346808 /* NSObject+FXModelValidation.h */,
-				55A64B191A1CF9C100346808 /* NSObject+FXModelValidation.m */,
-				55A64B1A1A1CF9C100346808 /* validators */,
+				09F6883C1B1838E300B58B0B /* validators */,
+				09F6885C1B1838E300B58B0B /* TMPModelValidation.h */,
+				09F6885E1B1838E300B58B0B /* TMPModelObserver.h */,
+				09F6885D1B1838E300B58B0B /* TMPModelObserver.m */,
+				09F6885F1B1838E300B58B0B /* TMPModel.m */,
+				09F688601B1838E300B58B0B /* TMPModel.h */,
+				09F688611B1838E300B58B0B /* NSObject+TMPModelValidation.m */,
+				09F688621B1838E300B58B0B /* NSObject+TMPModelValidation.h */,
 			);
 			name = FXModelValidation;
 			path = ../../FXModelValidation;
-			sourceTree = "<group>";
-		};
-		55A64B1A1A1CF9C100346808 /* validators */ = {
-			isa = PBXGroup;
-			children = (
-				55A64B1B1A1CF9C100346808 /* filters */,
-				55A64B1E1A1CF9C100346808 /* FXModelBooleanValidator.h */,
-				55A64B1F1A1CF9C100346808 /* FXModelBooleanValidator.m */,
-				55A64B201A1CF9C100346808 /* FXModelCompareValidator.h */,
-				55A64B211A1CF9C100346808 /* FXModelCompareValidator.m */,
-				55A64B221A1CF9C100346808 /* FXModelDefaultValueValidator.h */,
-				55A64B231A1CF9C100346808 /* FXModelDefaultValueValidator.m */,
-				55A64B241A1CF9C100346808 /* FXModelEmailValidator.h */,
-				55A64B251A1CF9C100346808 /* FXModelEmailValidator.m */,
-				55A64B261A1CF9C100346808 /* FXModelFilterValidator.h */,
-				55A64B271A1CF9C100346808 /* FXModelFilterValidator.m */,
-				55A64B281A1CF9C100346808 /* FXModelInlineValidator.h */,
-				55A64B291A1CF9C100346808 /* FXModelInlineValidator.m */,
-				55A64B2A1A1CF9C100346808 /* FXModelNumberValidator.h */,
-				55A64B2B1A1CF9C100346808 /* FXModelNumberValidator.m */,
-				55A64B2C1A1CF9C100346808 /* FXModelRangeValidator.h */,
-				55A64B2D1A1CF9C100346808 /* FXModelRangeValidator.m */,
-				55A64B2E1A1CF9C100346808 /* FXModelRegExpValidator.h */,
-				55A64B2F1A1CF9C100346808 /* FXModelRegExpValidator.m */,
-				55A64B301A1CF9C100346808 /* FXModelRequiredValidator.h */,
-				55A64B311A1CF9C100346808 /* FXModelRequiredValidator.m */,
-				55A64B321A1CF9C100346808 /* FXModelSafeValidator.h */,
-				55A64B331A1CF9C100346808 /* FXModelSafeValidator.m */,
-				55A64B341A1CF9C100346808 /* FXModelStringValidator.h */,
-				55A64B351A1CF9C100346808 /* FXModelStringValidator.m */,
-				55A64B361A1CF9C100346808 /* FXModelUrlValidator.h */,
-				55A64B371A1CF9C100346808 /* FXModelUrlValidator.m */,
-				55A64B381A1CF9C100346808 /* FXModelValidator.h */,
-				55A64B391A1CF9C100346808 /* FXModelValidator.m */,
-			);
-			path = validators;
-			sourceTree = "<group>";
-		};
-		55A64B1B1A1CF9C100346808 /* filters */ = {
-			isa = PBXGroup;
-			children = (
-				55A64B1C1A1CF9C100346808 /* FXModelTrimFilter.h */,
-				55A64B1D1A1CF9C100346808 /* FXModelTrimFilter.m */,
-			);
-			path = filters;
 			sourceTree = "<group>";
 		};
 		86467D945F57DFCBCC648943 /* Pods */ = {
@@ -325,28 +325,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55A64B461A1CF9C100346808 /* FXModelRegExpValidator.m in Sources */,
-				55A64B3C1A1CF9C100346808 /* NSObject+FXModelValidation.m in Sources */,
-				55A64B431A1CF9C100346808 /* FXModelInlineValidator.m in Sources */,
-				55A64B481A1CF9C100346808 /* FXModelSafeValidator.m in Sources */,
+				09F688691B1838E300B58B0B /* TMPModelInlineValidator.m in Sources */,
 				55901B221A1C84B10027C024 /* User.m in Sources */,
-				55A64B3F1A1CF9C100346808 /* FXModelCompareValidator.m in Sources */,
-				55A64B451A1CF9C100346808 /* FXModelRangeValidator.m in Sources */,
-				55A64B491A1CF9C100346808 /* FXModelStringValidator.m in Sources */,
+				09F688641B1838E300B58B0B /* TMPModelBooleanValidator.m in Sources */,
+				09F688721B1838E300B58B0B /* TMPModelObserver.m in Sources */,
+				09F6886D1B1838E300B58B0B /* TMPModelRequiredValidator.m in Sources */,
+				09F688731B1838E300B58B0B /* TMPModel.m in Sources */,
+				09F6886C1B1838E300B58B0B /* TMPModelRegExpValidator.m in Sources */,
 				55901B051A1C823F0027C024 /* ViewController.m in Sources */,
-				55A64B471A1CF9C100346808 /* FXModelRequiredValidator.m in Sources */,
+				09F6886B1B1838E300B58B0B /* TMPModelRangeValidator.m in Sources */,
+				09F688671B1838E300B58B0B /* TMPModelEmailValidator.m in Sources */,
+				09F688741B1838E300B58B0B /* NSObject+TMPModelValidation.m in Sources */,
+				09F6886A1B1838E300B58B0B /* TMPModelNumberValidator.m in Sources */,
+				09F6886E1B1838E300B58B0B /* TMPModelSafeValidator.m in Sources */,
 				55901B021A1C823F0027C024 /* AppDelegate.m in Sources */,
-				55A64B3B1A1CF9C100346808 /* FXModelObserver.m in Sources */,
-				55A64B4B1A1CF9C100346808 /* FXModelValidator.m in Sources */,
+				09F688661B1838E300B58B0B /* TMPModelDefaultValueValidator.m in Sources */,
+				09F688681B1838E300B58B0B /* TMPModelFilterValidator.m in Sources */,
 				55901AFF1A1C823F0027C024 /* main.m in Sources */,
-				55A64B441A1CF9C100346808 /* FXModelNumberValidator.m in Sources */,
-				55A64B4A1A1CF9C100346808 /* FXModelUrlValidator.m in Sources */,
-				55A64B421A1CF9C100346808 /* FXModelFilterValidator.m in Sources */,
-				55A64B3E1A1CF9C100346808 /* FXModelBooleanValidator.m in Sources */,
-				55A64B401A1CF9C100346808 /* FXModelDefaultValueValidator.m in Sources */,
-				55A64B3A1A1CF9C100346808 /* FXModel.m in Sources */,
-				55A64B3D1A1CF9C100346808 /* FXModelTrimFilter.m in Sources */,
-				55A64B411A1CF9C100346808 /* FXModelEmailValidator.m in Sources */,
+				09F688631B1838E300B58B0B /* TMPModelTrimFilter.m in Sources */,
+				09F688651B1838E300B58B0B /* TMPModelCompareValidator.m in Sources */,
+				09F688701B1838E300B58B0B /* TMPModelUrlValidator.m in Sources */,
+				09F688711B1838E300B58B0B /* TMPModelValidator.m in Sources */,
+				09F6886F1B1838E300B58B0B /* TMPModelStringValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
