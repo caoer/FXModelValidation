@@ -97,9 +97,9 @@ FOUNDATION_EXPORT NSString *const TMPModelValidatorSet;
 * - the rule must be associated with the attributes relevant to the current scenario;
 * - the rules must be effective for the current scenario.
 *
-* This method will call [[beforeValidate()]] and [[afterValidate()]] before and
-* after the actual validation, respectively. If [[beforeValidate()]] returns NO,
-* the validation will be cancelled and [[afterValidate()]] will not be called.
+* This method will call [[shouldValidateModel()]] and [[didValidateModel()]] before and
+* after the actual validation, respectively. If [[shouldValidateModel()]] returns NO,
+* the validation will be cancelled and [[didValidateModel()]] will not be called.
 *
 * Errors found during the validation can be retrieved via [[getErrors()]].
 *

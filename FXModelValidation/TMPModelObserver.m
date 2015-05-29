@@ -69,8 +69,12 @@
 }
 
 -(void)removeObserver {
-	for(NSString *name in _attributes)
-		[_model removeObserver:self forKeyPath:name];
+    @try {
+        for(NSString *name in _attributes) {
+            [_model removeObserver:self forKeyPath:name];
+        }
+    }
+    @catch (NSException *exception) {}
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

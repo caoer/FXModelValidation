@@ -63,13 +63,13 @@
 * @return  whether the validation should be executed. Defaults to YES.
 * If NO is returned, the validation will stop and the model is considered invalid.
 */
--(BOOL)beforeValidate;
+-(BOOL)shouldValidateModel;
 
 /**
 * This method is invoked after validation ends.
 * You may override this method to do postprocessing after validation. Defaults: do nothing.
 */
--(void)afterValidate;
+-(void)didValidateModel;
 @end
 
 @interface NSObject (TMPModelValidation)

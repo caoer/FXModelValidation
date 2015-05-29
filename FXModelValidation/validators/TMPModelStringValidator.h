@@ -22,7 +22,7 @@
 * - an array of two elements: the minimum and maximum lengths that the value should be of.
 *   For example, `@[@8, @128]`. This will overwrite both [[min]] and [[max]].
 */
-@property(nonatomic, copy) id length;
+@property(nonatomic, copy) id lengthLimitation;
 
 /**
 * Minimum length. If not set, it means no minimum length limit.

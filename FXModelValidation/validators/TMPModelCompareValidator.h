@@ -16,7 +16,7 @@
 * attribute name.
 *
 * CompareValidator supports different comparison operators, specified
-* via the [[operator]] property.
+* via the [[compareOperator]] property.
 */
 @interface TMPModelCompareValidator : TMPModelValidator
 
@@ -38,7 +38,7 @@
 @property(nonatomic, copy) id compareValue;
 
 /**
-* The operator for comparison. The following operators are supported:
+* The compareOperator for comparison. The following compareOperators are supported:
 *
 * - `==`: check if two values are equal
 * - `!=`: check if two values are NOT equal
@@ -47,5 +47,5 @@
 * - `<`: check if value being validated is less than the value being compared with.
 * - `<=`: check if value being validated is less than or equal to the value being compared with.
 */
-@property(nonatomic, copy) NSString *operator;
+@property(nonatomic, copy) NSString *compareOperator;
 @end

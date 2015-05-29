@@ -39,17 +39,19 @@ typedef NS_OPTIONS(NSUInteger, FXFormStringValidatorComporatorID) {
 	return (_notEqual ? _notEqual : @"{attribute} should contain {length} character(s).");
 }
 
--(void)setLength:(id)length {
+-(void)setLengthLimitation:(id)length {
 	if([length isKindOfClass:[NSArray class]] && [length count]) {
-		if([length[0] isKindOfClass:[NSNumber class]])
+        if([length[0] isKindOfClass:[NSNumber class]]) {
 			_min = [length[0] integerValue];
+        }
 
-		if(([length count] > 1) && [length[1] isKindOfClass:[NSNumber class]])
+        if(([length count] > 1) && [length[1] isKindOfClass:[NSNumber class]]) {
 			_max = [length[1] integerValue];
+        }
 
-		_length = nil;
+		_lengthLimitation = nil;
 	} else if([length isKindOfClass:[NSNumber class]]) {
-		_length = length;
+		_lengthLimitation = length;
 		_min = -1;
 		_max = -1;
 	}
@@ -124,12 +126,12 @@ typedef NS_OPTIONS(NSUInteger, FXFormStringValidatorComporatorID) {
 			}
 			break;
 		case FXFormStringValidatorComparatorEqual:
-			if(_length && ([value length] != [_length integerValue])) {
+			if(_lengthLimitation && ([value length] != [_lengthLimitation integerValue])) {
 				return [NSError errorWithDomain:FXFormValidatorErrorDomain
 										   code:0
 									   userInfo:@{
 											   NSLocalizedDescriptionKey: self.notEqual,
-											   @"{length}": _length,
+											   @"{length}": _lengthLimitation,
 									   }];
 			}
 			break;

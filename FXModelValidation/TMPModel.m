@@ -28,7 +28,7 @@ NSString *const TMPModelValidatorTrueValue = @"trueValue";
 NSString *const TMPModelValidatorFalseValue = @"falseValue";
 NSString *const TMPModelValidatorCompareAttribute = @"compareAttribute";
 NSString *const TMPModelValidatorCompareValue = @"compareValue";
-NSString *const TMPModelValidatorOperator = @"operator";
+NSString *const TMPModelValidatorOperator = @"compareOperator";
 NSString *const TMPModelValidatorValue = @"value";
 NSString *const TMPModelValidatorCheckDNS = @"checkDNS";
 NSString *const TMPModelValidatorEnableIDN = @"enableIDN";
@@ -71,11 +71,11 @@ NSString *const TMPModelValidatorWhen = @"when";
 	@throw [NSException exceptionWithName:@"TMPModel" reason:[NSString stringWithFormat:@"Expected -rules to be implemented by %@", NSStringFromClass([self class])] userInfo:nil];
 }
 
--(BOOL)beforeValidate {
+-(BOOL)shouldValidateModel {
 	return YES;
 }
 
--(void)afterValidate {
+-(void)didValidateModel {
 
 }
 
@@ -175,7 +175,7 @@ NSString *const TMPModelValidatorWhen = @"when";
 	if(clearErrors)
 		[self clearErrors:nil];
 
-	if([self beforeValidate]) {
+	if([self shouldValidateModel]) {
 		NSDictionary *scenarios = [self scenarioList];
 		NSString *scenario = [self getScenario];
 
@@ -188,7 +188,7 @@ NSString *const TMPModelValidatorWhen = @"when";
 		for(TMPModelValidator *validator in [self getActiveValidators])
 			[validator validate:self attributes:attributes];
 
-		[self afterValidate];
+		[self didValidateModel];
 
 		return (![self hasErrors]);
 	}

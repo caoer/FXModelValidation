@@ -10,7 +10,7 @@
 
 -(instancetype)init {
 	if((self = [super init]))
-		_operator = @"==";
+		_compareOperator = @"==";
 
 	return self;
 }
@@ -28,20 +28,20 @@
 	if([super message])
 		return [super message];
 
-	if([_operator isEqual:@"=="])
+	if([_compareOperator isEqual:@"=="])
 		return @"{attribute} must be repeated exactly.";
-	else if([_operator isEqual:@"!="])
+	else if([_compareOperator isEqual:@"!="])
 		return @"{attribute} must not be equal to '{compareValue}'.";
-	else if([_operator isEqual:@">"])
+	else if([_compareOperator isEqual:@">"])
 		return @"{attribute} must be greater than '{compareValue}'.";
-	else if([_operator isEqual:@">="])
+	else if([_compareOperator isEqual:@">="])
 		return @"{attribute} must be greater than or equal to '{compareValue}'.";
-	else if([_operator isEqual:@"<"])
+	else if([_compareOperator isEqual:@"<"])
 		return @"{attribute} must be less than '{compareValue}'.";
-	else if([_operator isEqual:@"<="])
+	else if([_compareOperator isEqual:@"<="])
 		return @"{attribute} must be less than or equal to '{compareValue}'.";
 	else
-		@throw [NSException exceptionWithName:@"TMPModelCompareValidator" reason:[NSString stringWithFormat: @"Unknown operator: %@", _operator] userInfo:nil];
+		@throw [NSException exceptionWithName:@"TMPModelCompareValidator" reason:[NSString stringWithFormat: @"Unknown compareOperator: %@", _compareOperator] userInfo:nil];
 }
 
 -(void)validate:(id)model attribute:(NSString *)attribute {
@@ -97,10 +97,10 @@
 }
 
 /**
-* Compares two values with the specified operator.
+* Compares two values with the specified compareOperator.
 * @param value the value being compared
 * @param compareValue another value being compared
-* @return whether the comparison using the specified operator is true.
+* @return whether the comparison using the specified compareOperator is true.
 */
 -(BOOL)compareValues:(id)value compareValue:(id)compareValue {
 	if(([value isKindOfClass:[NSString class]] && [compareValue isKindOfClass:[NSString class]]) ||
@@ -108,33 +108,33 @@
 	{
 		NSComparisonResult compare = [value compare:compareValue];
 
-		if([_operator isEqual:@"=="])
+		if([_compareOperator isEqual:@"=="])
 			return (compare == NSOrderedSame);
-		else if([_operator isEqual:@"!="])
+		else if([_compareOperator isEqual:@"!="])
 			return (compare != NSOrderedSame);
-		else if([_operator isEqual:@">"])
+		else if([_compareOperator isEqual:@">"])
 			return (compare == NSOrderedDescending);
-		else if([_operator isEqual:@">="])
+		else if([_compareOperator isEqual:@">="])
 			return (compare == NSOrderedDescending || compare == NSOrderedSame);
-		else if([_operator isEqual:@"<"])
+		else if([_compareOperator isEqual:@"<"])
 			return (compare == NSOrderedAscending);
-		else if([_operator isEqual:@"<="])
+		else if([_compareOperator isEqual:@"<="])
 			return (compare == NSOrderedAscending || compare == NSOrderedSame);
 	} else if([value isKindOfClass:[NSNumber class]] && [compareValue isKindOfClass:[NSNumber class]]) {
 		CGFloat value1 = [value floatValue];
 		CGFloat value2 = [compareValue floatValue];
 
-		if([_operator isEqual:@"=="])
+		if([_compareOperator isEqual:@"=="])
 			return (value1 == value2);
-		else if([_operator isEqual:@"!="])
+		else if([_compareOperator isEqual:@"!="])
 			return (value1 != value2);
-		else if([_operator isEqual:@">"])
+		else if([_compareOperator isEqual:@">"])
 			return (value1 > value2);
-		else if([_operator isEqual:@">="])
+		else if([_compareOperator isEqual:@">="])
 			return (value1 >= value2);
-		else if([_operator isEqual:@"<"])
+		else if([_compareOperator isEqual:@"<"])
 			return (value1 < value2);
-		else if([_operator isEqual:@"<="])
+		else if([_compareOperator isEqual:@"<="])
 			return (value1 <= value2);
 	}
 
