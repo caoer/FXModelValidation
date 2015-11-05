@@ -251,7 +251,7 @@ NSString *const TMPModelValidatorWhen = @"when";
 			id attributes;
 			id type;
 
-			if ([rule isKindOfClass:[NSArray class]] && ([rule count] > 1)) {
+			if ([rule isKindOfClass:[NSArray class]] && ([(NSArray *)rule count] > 1)) {
 				type = rule[1];
 				attributes = rule[0];
 				params = nil;

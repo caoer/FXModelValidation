@@ -40,12 +40,12 @@ typedef NS_OPTIONS(NSUInteger, FXFormStringValidatorComporatorID) {
 }
 
 -(void)setLengthLimitation:(id)length {
-	if([length isKindOfClass:[NSArray class]] && [length count]) {
+	if([length isKindOfClass:[NSArray class]] && [(NSArray *)length count]) {
         if([length[0] isKindOfClass:[NSNumber class]]) {
 			_min = [length[0] integerValue];
         }
 
-        if(([length count] > 1) && [length[1] isKindOfClass:[NSNumber class]]) {
+        if(([(NSArray *)length count] > 1) && [length[1] isKindOfClass:[NSNumber class]]) {
 			_max = [length[1] integerValue];
         }
 

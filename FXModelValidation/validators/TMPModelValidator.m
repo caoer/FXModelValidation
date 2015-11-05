@@ -49,7 +49,7 @@ static NSDictionary *FXFormBuiltInValidators;
 
 
 	for(NSString *name in attributes) {
-		BOOL skip = ([self skipOnError] && [model hasErrors:name]) || ([self skipOnEmpty] && [self isEmpty:[model valueForKey:name]]);
+		BOOL skip = ([self skipOnError] && [model hasErrors:name]) || ([self skipOnEmpty] && [self isEmpty:[model valueForKeyPath:name]]);
 		if (!(skip)) {
 			if(_when == nil || _when(model, name)) {
 				[self validate:model attribute:name];
@@ -61,7 +61,7 @@ static NSDictionary *FXFormBuiltInValidators;
 -(void)validate:(id)model attribute:(NSString *)attribute {
 	NSAssert(attribute, @"Name of attribute can't be nil.");
 
-	NSError *error = [self validateValue:[model valueForKey:attribute]];
+	NSError *error = [self validateValue:[model valueForKeyPath:attribute]];
 	if (error)
 		[self addError:model attribute:attribute error:error];
 }
@@ -96,7 +96,7 @@ static NSDictionary *FXFormBuiltInValidators;
 
 	return  (
 		value == nil || [value isKindOfClass:[NSNull class]] ||
-		(([value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSSet class]] || [value isKindOfClass:[NSOrderedSet class]]) && [value count] < 1) ||
+		(([value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSSet class]] || [value isKindOfClass:[NSOrderedSet class]]) && [(NSArray *)value count] < 1) ||
 		([value isKindOfClass:[NSString class]] && [(NSString *)value length] < 1)
 	);
 }
