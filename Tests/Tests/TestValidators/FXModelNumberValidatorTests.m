@@ -1,12 +1,12 @@
 #import "CommonHelper.h"
 
-SpecBegin(FXModelNumberValidator)
-		__block FXModelNumberValidator *validator;
+SpecBegin(TMPModelNumberValidator)
+		__block TMPModelNumberValidator *validator;
 		__block NSError *error;
 
 		describe(@"validateValue", ^{
 			beforeEach(^{
-				validator = [[FXModelNumberValidator alloc] init];
+				validator = [[TMPModelNumberValidator alloc] init];
 			});
 
 			describe(@"check type", ^{

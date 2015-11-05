@@ -35,13 +35,13 @@ To make **validate** really work, you should declare validation rules for the at
 	return @[
 		// the name, email, subject and body attributes are required
 		@{
-			FXModelValidatorAttributes : @[@"name", @"email", @"subject", @"body"],
-			FXModelValidatorType : @"required",
+			TMPModelValidatorAttributes : @[@"name", @"email", @"subject", @"body"],
+			TMPModelValidatorType : @"required",
 		},
 		// the email attribute should be a valid email address
 		@{
-			FXModelValidatorAttributes : @"email",
-			FXModelValidatorType : @"email"
+			TMPModelValidatorAttributes : @"email",
+			TMPModelValidatorType : @"email"
 		}
 	];
 }
@@ -54,17 +54,17 @@ The **rules** method should return an array of rules, each of which is an array/
 		// required, specifies which attributes should be validated by this rule.
 		// For a single attribute, you can use the attribute name directly
 		// without having it in an array instead of an array. You also can use string with comma-separated attribute names (e.g.: @"attribute1,attribute2") 
-		FXModelValidatorAttributes : @[@"attribute1", @"attribute2", ...],
+		TMPModelValidatorAttributes : @[@"attribute1", @"attribute2", ...],
     	
 		// required, specifies the type of this rule.
 		// It can be a class name, validator alias,  a validation method name or a validation block
-		FXModelValidatorType : @"validator",
+		TMPModelValidatorType : @"validator",
     	
 		// optional, specifies in which scenario(s) this rule should be applied
 		// if not given, it means the rule applies to all scenarios
 		// You may also configure the "except" option if you want to apply the rule
 		// to all scenarios except the listed ones
-		FXModelValidatorOn => @[@"scenario1", "scenario2", ...],
+		TMPModelValidatorOn => @[@"scenario1", "scenario2", ...],
        
 		// optional, specifies additional configurations for the validator object
 		'property1' => 'value1', 
@@ -74,7 +74,7 @@ The **rules** method should return an array of rules, each of which is an array/
 ];
 ```
  
-There is also a short version that you can use in case when only FXModelValidatorAttributes and FXModelValidatorType will be used:
+There is also a short version that you can use in case when only TMPModelValidatorAttributes and TMPModelValidatorType will be used:
 ```object-c
 @[
 	@[ @[@"attribute1", @"attribute2", ...], @"validator" ],
@@ -84,7 +84,7 @@ There is also a short version that you can use in case when only FXModelValidato
 
 For each rule you must specify at least which attributes the rule applies to and what is the type of the rule. You can specify the rule type in one of the following forms:
  
-- the alias of a core validator, such as _required_, _in_, _email_, etc. Please refer to the [Core Validators](https://github.com/plandem/FXModelValidation/blob/master/Core%20Validators.md) for the complete list of core validators.
+- the alias of a core validator, such as _required_, _in_, _email_, etc. Please refer to the [Core Validators](https://github.com/plandem/TMPModelValidation/blob/master/Core%20Validators.md) for the complete list of core validators.
 - the name of a validation method in the model class, or a block. Please refer to the [Inline Validators] subsection for more details.
 - a fully qualified validator class or class name. Please refer to the [Standalone Validators] subsection for more details.
 
@@ -106,9 +106,9 @@ You can customize the error message of a rule by specifying the _message_ proper
 -(NSArray *)rules {				
 	return @[
 		@{
-			FXModelValidatorAttributes : @"username",
-			FXModelValidatorType : @"required",
-			FXModelValidatorMessage : @"Please choose a username.", 
+			TMPModelValidatorAttributes : @"username",
+			TMPModelValidatorType : @"required",
+			TMPModelValidatorMessage : @"Please choose a username.", 
 		},
 	];
 }
@@ -127,9 +127,9 @@ To validate attributes only when certain conditions apply, e.g. the validation o
 ```object-c
 @[
     @{
-    	FXModelValidatorAttributes: @"state", 
-    	FXModelValidatorType: @"required", 
-    	FXModelValidatorWhen: ^BOOL(id model, NSString *attribute) {
+    	TMPModelValidatorAttributes: @"state", 
+    	TMPModelValidatorType: @"required", 
+    	TMPModelValidatorWhen: ^BOOL(id model, NSString *attribute) {
 	        return [model.country isEqual: @"USA"];
     	},
     },
@@ -168,14 +168,14 @@ As you can see, these validation rules do not really validate the inputs. Instea
 @[
     @{
     	// set "username" and "email" as null if they are empty
-    	FXModelValidatorAttributes: @"username,email", 
-    	FXModelValidatorType: @"default", 
+    	TMPModelValidatorAttributes: @"username,email", 
+    	TMPModelValidatorType: @"default", 
     },
     @{
     	// set "level" to be 1 if it is empty
-    	FXModelValidatorAttributes: @"level", 
-    	FXModelValidatorType: @"default",
-    	FXModelValidatorValue: @1,
+    	TMPModelValidatorAttributes: @"level", 
+    	TMPModelValidatorType: @"default",
+    	TMPModelValidatorValue: @1,
     },        
 ];
 ```
@@ -184,9 +184,9 @@ By default, an input is considered empty if its value is an empty string, an emp
 ```object-c
 @[
     @{
-    	FXModelValidatorAttributes: @"agree", 
-    	FXModelValidatorType: @"required", 
-    	FXModelValidatorIsEmpty: ^BOOL(id value) {
+    	TMPModelValidatorAttributes: @"agree", 
+    	TMPModelValidatorType: @"required", 
+    	TMPModelValidatorIsEmpty: ^BOOL(id value) {
 	        return (value == nil);
     	},
     },
@@ -200,7 +200,7 @@ Sometimes you need to do ad hoc validation for values that are not bound to any 
 If you only need to perform one type of validation (e.g. validating email addresses), you may call the **validateValue** method of the desired validator, like the following:
 ```object-c
 NSString *email = @"test@example.com";
-FXModelEmailValidator *validator = [[FXModelEmailValidator alloc] init];
+TMPModelEmailValidator *validator = [[TMPModelEmailValidator alloc] init];
  
 NSError *error;
 if ((error = [validator validateValue:email])) {
@@ -216,16 +216,16 @@ Alternatively, you may use the following more "classic" syntax to perform ad hoc
 Form *form = [[Form alloc] init];
 [form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"username,password",
-								FXModelValidatorType : @"required",
+								TMPModelValidatorAttributes : @"username,password",
+								TMPModelValidatorType : @"required",
 						},
 						@{
-								FXModelValidatorAttributes : @"username",
-								FXModelValidatorType : @"email",
+								TMPModelValidatorAttributes : @"username",
+								TMPModelValidatorType : @"email",
 						},
 				]];
 ```
-> Note: Here we attach 'FXModel' functionality with __inline__ rules.
+> Note: Here we attach 'TMPModel' functionality with __inline__ rules.
 
 or 
 
@@ -233,21 +233,21 @@ or
 Form *form = [[Form alloc] init];
 [form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"username,password",
-								FXModelValidatorType : @"required",
+								TMPModelValidatorAttributes : @"username,password",
+								TMPModelValidatorType : @"required",
 						},
 						@{
-								FXModelValidatorAttributes : @"username",
-								FXModelValidatorType : @"email",
+								TMPModelValidatorAttributes : @"username",
+								TMPModelValidatorType : @"email",
 						},
 				] force: YES];
 ```
-> Note: Here we attach 'FXModel' functionality with __inline__ rules and force to override default implementation.
+> Note: Here we attach 'TMPModel' functionality with __inline__ rules and force to override default implementation.
 
 After validation, you can check if the validation succeeds or not by calling the **hasErrors** method, and then get the validation errors from the errors property, like you do with a normal model.
 
 #Creating Validators
-Besides using the **core validators** included in the FXModelValidation, you may also create your own validators. You may create inline validators or standalone validators.
+Besides using the **core validators** included in the TMPModelValidation, you may also create your own validators. You may create inline validators or standalone validators.
 
 ##Inline Validators
 An inline validator is one defined in terms of a model method or block. The signature of the method/function is:
@@ -265,7 +265,7 @@ If an attribute fails the validation, the method/function should call **addError
 Below are some examples:
 
 ```object-c
-@interface MyForm: NSObject <FXModelValidation>
+@interface MyForm: NSObject <TMPModelValidation>
 @end
 
 @implementation MyForm
@@ -274,13 +274,13 @@ Below are some examples:
 	return @[
 		@{
 		 	// an inline validator defined as the model method validateCountry:params
-			FXModelValidatorAttributes : @"username",
-			FXModelValidatorType : @"validateCountry",
+			TMPModelValidatorAttributes : @"username",
+			TMPModelValidatorType : @"validateCountry",
 		},
 		@{
 			// an inline validator defined as block
-			FXModelValidatorAttributes : @"token",
-			FXModelValidatorType : ^(id model, NSString *attribute, NSDictionary *params) {
+			TMPModelValidatorAttributes : @"token",
+			TMPModelValidatorType : ^(id model, NSString *attribute, NSDictionary *params) {
 				if(!([[model valueForKey:attribute] isEqual:@123]))
 					[model addError:attribute message:@"The token must contain letters or digits."];
 		},
@@ -302,18 +302,18 @@ Below are some examples:
 @[
 		@{
 		 	// an inline validator defined as the model method validateCountry:params
-			FXModelValidatorAttributes : @"username",
-			FXModelValidatorType : @"validateCountry",
-			FXModelValidatorSkipOnEmpty: @NO,
-			FXModelValidatorSkipOnError: @NO,
+			TMPModelValidatorAttributes : @"username",
+			TMPModelValidatorType : @"validateCountry",
+			TMPModelValidatorSkipOnEmpty: @NO,
+			TMPModelValidatorSkipOnError: @NO,
 		},
 ];
 ```
 
 ##Standalone Validators
-A standalone validator is a class extending FXModelValidator or its child class. You may implement its validation logic by overriding **validate:attribute** method. If an attribute fails the validation, call **addError** to save the error message in the model, like you do with inline validators. For example,
+A standalone validator is a class extending TMPModelValidator or its child class. You may implement its validation logic by overriding **validate:attribute** method. If an attribute fails the validation, call **addError** to save the error message in the model, like you do with inline validators. For example,
 ```object-c
-@interface CountryValidator: FXModelValidator
+@interface CountryValidator: TMPModelValidator
 @end
 
 @implementation CountryValidator

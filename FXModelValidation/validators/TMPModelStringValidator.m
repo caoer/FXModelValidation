@@ -50,9 +50,9 @@ typedef NS_OPTIONS(NSUInteger, FXFormStringValidatorComporatorID) {
 			_max = [length[1] integerValue];
         }
 
-		_lengthLimitation = nil;
+		_length = nil;
 	} else if([length isKindOfClass:[NSNumber class]]) {
-		_lengthLimitation = length;
+		_length = length;
 		_min = -1;
 		_max = -1;
 	}

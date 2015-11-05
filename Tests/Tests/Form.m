@@ -7,7 +7,7 @@
 
 @implementation Form
 -(NSArray *)rules {
-	@throw [NSException exceptionWithName:@"FXModel" reason:@"rules must be implemented" userInfo:nil];
+	@throw [NSException exceptionWithName:@"TMPModel" reason:@"rules must be implemented" userInfo:nil];
 }
 
 -(NSDictionary *)scenarioList {

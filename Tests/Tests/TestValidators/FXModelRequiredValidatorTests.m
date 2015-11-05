@@ -1,6 +1,6 @@
 #import "CommonHelper.h"
 
-SpecBegin(FXModelRequiredValidator)
+SpecBegin(TMPModelRequiredValidator)
 		__block Form *form;
 
 		describe(@"validateValue", ^{
@@ -11,8 +11,8 @@ SpecBegin(FXModelRequiredValidator)
 			it(@"-required valueString should add error when empty", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"required",
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"required",
 						},
 				] force:YES];
 
@@ -26,8 +26,8 @@ SpecBegin(FXModelRequiredValidator)
 			it(@"-required valueString should be valid when not empty", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"required",
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"required",
 						},
 				] force:YES];
 
@@ -41,9 +41,9 @@ SpecBegin(FXModelRequiredValidator)
 			it(@"-required valueString should add error if not equal requiredValue", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"required",
-								FXModelValidatorRequiredValue: @"test string",
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"required",
+								TMPModelValidatorRequiredValue: @"test string",
 						},
 				] force:YES];
 

@@ -1,6 +1,6 @@
 #import "CommonHelper.h"
 
-SpecBegin(FXModelTrimFilter)
+SpecBegin(TMPModelTrimFilter)
 		__block Form *form;
 
 		describe(@"trim", ^{
@@ -11,8 +11,8 @@ SpecBegin(FXModelTrimFilter)
 			it(@"-trim filter should trim whitespaces from valueString", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"trim",
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"trim",
 						},
 				] force:YES];
 
@@ -26,9 +26,9 @@ SpecBegin(FXModelTrimFilter)
 			it(@"-trim filter should trim begging letters from valueString", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"trim",
-								FXModelValidatorSet : [NSCharacterSet letterCharacterSet],
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"trim",
+								TMPModelValidatorSet : [NSCharacterSet letterCharacterSet],
 						},
 				] force:YES];
 

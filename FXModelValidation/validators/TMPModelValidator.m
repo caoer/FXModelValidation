@@ -112,11 +112,11 @@ static NSDictionary *FXFormBuiltInValidators;
 	return NO;
 
 //	TODO: find way to reproduce cases when this will be failed with ARC (wrong casting for id and method can't be called)
-	return  (
-		value == nil || [value isKindOfClass:[NSNull class]] ||
-		(([value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSSet class]] || [value isKindOfClass:[NSOrderedSet class]]) && [(NSArray *)value count] < 1) ||
-		([value isKindOfClass:[NSString class]] && [(NSString *)value length] < 1)
-	);
+//	return  (
+//		value == nil || [value isKindOfClass:[NSNull class]] ||
+//		(([value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSSet class]] || [value isKindOfClass:[NSOrderedSet class]]) && [(NSArray *)value count] < 1) ||
+//		([value isKindOfClass:[NSString class]] && [(NSString *)value length] < 1)
+//	);
 }
 
 +(TMPModelValidator *)createValidator:(id)type model:(id)model attributes:(NSArray *)attributes params:(NSDictionary *)params {

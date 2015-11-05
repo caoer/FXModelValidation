@@ -1,13 +1,13 @@
 #import "CommonHelper.h"
 
-@interface Form1: NSObject <FXModelValidation>
+@interface Form1: NSObject <TMPModelValidation>
 @property (nonatomic, assign) NSInteger valueInteger;
 @end;
 
 @implementation Form1
 @end;
 
-SpecBegin(FXModelSafeValidator)
+SpecBegin(TMPModelSafeValidator)
 		__block Form1 *form;
 
 		describe(@"validateValue", ^{
@@ -28,8 +28,8 @@ SpecBegin(FXModelSafeValidator)
 			it(@"-mass assignment should work", ^{
 				[form validationInitWithRules:@[
 						@{
-							FXModelValidatorAttributes : @"valueInteger",
-							FXModelValidatorType: @"safe",
+							TMPModelValidatorAttributes : @"valueInteger",
+							TMPModelValidatorType: @"safe",
 						},
 				] force:YES];
 

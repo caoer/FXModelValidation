@@ -1,12 +1,12 @@
 #import "CommonHelper.h"
 
-SpecBegin(FXModelBooleanValidator)
-		__block FXModelBooleanValidator *validator;
+SpecBegin(TMPModelBooleanValidator)
+		__block TMPModelBooleanValidator *validator;
 		__block NSError *error;
 
 		describe(@"settings", ^{
 			beforeEach(^{
-				validator = [[FXModelBooleanValidator alloc] init];
+				validator = [[TMPModelBooleanValidator alloc] init];
 			});
 
 			it(@"-default trueValue should be YES", ^{
@@ -35,7 +35,7 @@ SpecBegin(FXModelBooleanValidator)
 
 		describe(@"validateValue", ^{
 			beforeEach(^{
-				validator = [[FXModelBooleanValidator alloc] init];
+				validator = [[TMPModelBooleanValidator alloc] init];
 			});
 
 			it(@"-should have be invalid", ^{

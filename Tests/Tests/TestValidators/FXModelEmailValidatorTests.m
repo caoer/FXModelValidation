@@ -1,12 +1,12 @@
 #import "CommonHelper.h"
 
-SpecBegin(FXModelEmailValidator)
-		__block FXModelEmailValidator *validator;
+SpecBegin(TMPModelEmailValidator)
+		__block TMPModelEmailValidator *validator;
 		__block NSError *error;
 
 		describe(@"validateValue", ^{
 			beforeEach(^{
-				validator = [[FXModelEmailValidator alloc] init];
+				validator = [[TMPModelEmailValidator alloc] init];
 			});
 
 			describe(@"check email format", ^{

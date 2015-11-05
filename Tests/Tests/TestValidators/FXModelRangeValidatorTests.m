@@ -1,12 +1,12 @@
 #import "CommonHelper.h"
 
-SpecBegin(FXModelRangeValidator)
-		__block FXModelRangeValidator *validator;
+SpecBegin(TMPModelRangeValidator)
+		__block TMPModelRangeValidator *validator;
 		__block NSError *error;
 
 		describe(@"validateValue", ^{
 			beforeEach(^{
-				validator = [[FXModelRangeValidator alloc] init];
+				validator = [[TMPModelRangeValidator alloc] init];
 				validator.range = @[@1, @2, @5, @10, @"name"];
 			});
 
@@ -18,7 +18,7 @@ SpecBegin(FXModelRangeValidator)
 				});
 
 				it(@"-non NSArray is invalid", ^{
-					validator = [[FXModelRangeValidator alloc] initWithAttributes:nil params:@{
+					validator = [[TMPModelRangeValidator alloc] initWithAttributes:nil params:@{
 							@"range": @100,
 					}];
 

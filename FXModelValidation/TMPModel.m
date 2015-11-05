@@ -354,28 +354,27 @@ NSString *const TMPModelValidatorWhen = @"when";
 }
 
 -(void)clearErrors:(id)attribute {
-	NSMutableDictionary *errors = [self getValidationErrors];
-	NSUInteger errorsBefore = [errors count];
-
-	if(attribute == nil) {
-		[errors removeAllObjects];
-	} else if([attribute isKindOfClass:[NSString class]] && errors[(NSString *)attribute]) {
-		[errors removeObjectForKey:attribute];
-	} else if([attribute isKindOfClass:[NSArray class]]) {
-		for(NSString *name in (NSArray *)attribute) {
-			if(errors[name]) {
-				[errors removeObjectForKey:name];
-			}
-		}
-		}
-
-	} else if([self getValidationErrors][attribute]) {
-		[self willChangeValueForKey:@"errors"];
-		[self willChangeValueForKey:@"hasErrors"];
-		[[self getValidationErrors] removeObjectForKey:attribute];
-		[self didChangeValueForKey:@"errors"];
-		[self didChangeValueForKey:@"hasErrors"];
-	}
+    NSMutableDictionary *errors = [self getValidationErrors];
+    NSUInteger errorsBefore = [errors count];
+    
+    if(attribute == nil) {
+        [errors removeAllObjects];
+    } else if([attribute isKindOfClass:[NSString class]] && errors[(NSString *)attribute]) {
+        [errors removeObjectForKey:attribute];
+    } else if([attribute isKindOfClass:[NSArray class]]) {
+        for(NSString *name in (NSArray *)attribute) {
+            if(errors[name]) {
+                [errors removeObjectForKey:name];
+            }
+        }
+    }
+    
+    if(errorsBefore != [errors count]) {
+        [self willChangeValueForKey:@"errors"];
+        [self willChangeValueForKey:@"hasErrors"];
+        [self didChangeValueForKey:@"errors"];
+        [self didChangeValueForKey:@"hasErrors"];
+    }
 }
 
 -(NSDictionary *)getAttributes {

@@ -1,14 +1,14 @@
-[![Build Status](https://travis-ci.org/plandem/FXModelValidation.svg)](https://travis-ci.org/plandem/FXModelValidation)
-[![Coverage Status](https://img.shields.io/coveralls/plandem/FXModelValidation.svg)](https://coveralls.io/r/plandem/FXModelValidation?branch=master)
-[![Pod Version](http://img.shields.io/cocoapods/v/FXModelValidation.svg?style=flat)](http://cocoadocs.org/docsets/FXModelValidation/)
-[![Pod Platform](http://img.shields.io/cocoapods/p/FXModelValidation.svg?style=flat)](http://cocoadocs.org/docsets/FXModelValidation/)
+[![Build Status](https://travis-ci.org/plandem/TMPModelValidation.svg)](https://travis-ci.org/plandem/TMPModelValidation)
+[![Coverage Status](https://img.shields.io/coveralls/plandem/TMPModelValidation.svg)](https://coveralls.io/r/plandem/TMPModelValidation?branch=master)
+[![Pod Version](http://img.shields.io/cocoapods/v/TMPModelValidation.svg?style=flat)](http://cocoadocs.org/docsets/TMPModelValidation/)
+[![Pod Platform](http://img.shields.io/cocoapods/p/TMPModelValidation.svg?style=flat)](http://cocoadocs.org/docsets/TMPModelValidation/)
 
 #Purpose
-FXModelValidation is an Objective-C library that allows to validate data/model/forms easily. Suits for any NSObject. So it should work fine both with CoreData or with raw NSObject. Library transparently supports [FXForms](https://github.com/nicklockwood/FXForms) to exclude own properties.
+TMPModelValidation is an Objective-C library that allows to validate data/model/forms easily. Suits for any NSObject. So it should work fine both with CoreData or with raw NSObject. Library transparently supports [FXForms](https://github.com/nicklockwood/FXForms) to exclude own properties.
 
 To make it to work you must do only 3 small steps:
 - define validation rules
-- attach FXModel functionality
+- attach TMPModel functionality
 - validate 
 
 ##Supported iOS/OSX & SDK Versions
@@ -19,32 +19,32 @@ To make it to work you must do only 3 small steps:
 >Note: 'Supported' means that the library has been tested with this version. 'Compatible' means that the library should work on this iOS version (i.e. it doesn't rely on any unavailable SDK features) but is no longer being tested for compatibility and may require tweaking or bug fixes to run correctly.
 
 ##ARC Compatibility
-FXModelValidation requires ARC.
+TMPModelValidation requires ARC.
 
 ##How to get started
 - install via CocoaPods
 ```
-pod 'FXModelValidation'
+pod 'TMPModelValidation'
 ```
-- read this guide, [Validating Input](https://github.com/plandem/FXModelValidation/blob/master/Validating%20Input.md), [Core Validators](https://github.com/plandem/FXModelValidation/blob/master/Core%20Validators.md) and check out the [API documentation](http://cocoadocs.org/docsets/FXModelValidation)
+- read this guide, [Validating Input](https://github.com/plandem/TMPModelValidation/blob/master/Validating%20Input.md), [Core Validators](https://github.com/plandem/TMPModelValidation/blob/master/Core%20Validators.md) and check out the [API documentation](http://cocoadocs.org/docsets/TMPModelValidation)
 - if you find issues or want to suggest improvements, create an issue or a pull request
 
-##Attaching FXModelValidation
-To make FXModelValidation work with your classes, you must _attach_ it functionality. You can do it for class or for single instance only. 
+##Attaching TMPModelValidation
+To make TMPModelValidation work with your classes, you must _attach_ it functionality. You can do it for class or for single instance only. 
 
 ```object-c
 ContactForm* model = [ContactForm alloc] init];
 [[ContactForm class] validationInit];
 
 ```
->Attach FXModelValidation to class
+>Attach TMPModelValidation to class
 
 ```object-c
 ContactForm* model = [ContactForm alloc] init];
 [model validationInit];
 
 ```
->Attach FXModelValidation to single instance of ContactForm _model_.
+>Attach TMPModelValidation to single instance of ContactForm _model_.
 
 
 Probably, best way is to override init method of class:
@@ -63,20 +63,20 @@ Probably, best way is to override init method of class:
 @end
 
 ```
->Now any instance of ContactForm will have attached FXModelValidation functionality.
+>Now any instance of ContactForm will have attached TMPModelValidation functionality.
 
-To gain access to this functionality, you also must add *FXModelValidation protocol* at your _interface_ declaration, like
+To gain access to this functionality, you also must add *TMPModelValidation protocol* at your _interface_ declaration, like
 ```object-c
-@interface ContactForm : NSObject <FXModelValidation>
+@interface ContactForm : NSObject <TMPModelValidation>
 @end
 ```
 
-That's all. Now you have access to FXModelValidation methods/properties at your class. 
+That's all. Now you have access to TMPModelValidation methods/properties at your class. 
 
 _But let's start from beginning..._
 
 ## Models
-Models are part of the [MVC](http://en.wikipedia.org/wiki/Model–view–controller) architecture. They are objects representing business data, rules and logic. In terms of this library, models are objects that implements **FXModelValidation** protocol.
+Models are part of the [MVC](http://en.wikipedia.org/wiki/Model–view–controller) architecture. They are objects representing business data, rules and logic. In terms of this library, models are objects that implements **TMPModelValidation** protocol.
 
 ##Attributes
 Models represent business data in terms of attributes. Each attribute is like a publicly accessible property of a model. The method **attributeList** specifies what attributes a model class has.
@@ -103,7 +103,7 @@ NSLog(@"%@", [model valueForKey:@"name"]);
 ##Defining Attributes
 By default, **attributeList** returns all public properties. For example, the _ContactForm_ model class below has four attributes: _name_, _email_, _subject_ and _body_.
 ```object-c
-@interface ContactForm : NSObject <FXModelValidation>
+@interface ContactForm : NSObject <TMPModelValidation>
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *subject;
@@ -147,7 +147,7 @@ The default implementation of _scenarioList_ will return all scenarios found in 
 ```object-c
 @implementation User
 -(NSDictionary *)scenarioList {
-	NSMutableDictionary *scenarios = [NSMutableDictionary dictionaryWithDictionary:[(id<FXModel>)super scenarioList]];
+	NSMutableDictionary *scenarios = [NSMutableDictionary dictionaryWithDictionary:[(id<TMPModel>)super scenarioList]];
 	scenarios[@"login"] = @[@"username", @"password"];
 	scenarios[@"register"] = @[@"username", @"email", @"password"];
 	return scenarios;
@@ -183,19 +183,19 @@ To declare validation rules associated with a model, override the **rules** meth
 	return @[
 		// the name, email, subject and body attributes are required
 		@{
-			FXModelValidatorAttributes : @[@"name", @"email", @"subject", @"body"],
-			FXModelValidatorType : @"required",
+			TMPModelValidatorAttributes : @[@"name", @"email", @"subject", @"body"],
+			TMPModelValidatorType : @"required",
 		},
 		// the email attribute should be a valid email address
 		@{
-			FXModelValidatorAttributes : @"email",
-			FXModelValidatorType : @"email"
+			TMPModelValidatorAttributes : @"email",
+			TMPModelValidatorType : @"email"
 		}
 	];
 }
 ```
 
-A rule can be used to validate one or multiple attributes, and an attribute may be validated by one or multiple rules. Please refer to the [Validating Input](https://github.com/plandem/FXModelValidation/blob/master/Validating%20Input.md) section for more details on how to declare validation rules.
+A rule can be used to validate one or multiple attributes, and an attribute may be validated by one or multiple rules. Please refer to the [Validating Input](https://github.com/plandem/TMPModelValidation/blob/master/Validating%20Input.md) section for more details on how to declare validation rules.
 
 Sometimes, you may want a rule to be applied only in certain scenarios. To do so, you can specify the on property of a rule, like the following:
 
@@ -204,15 +204,15 @@ Sometimes, you may want a rule to be applied only in certain scenarios. To do so
 	return @[
 			// username, email and password are all required in "register" scenario
 			@{
-					FXModelValidatorAttributes : @[@"user", @"email", @"password"],
-					FXModelValidatorType : @"required",
-					FXModelValidatorOn: @[@"register"],
+					TMPModelValidatorAttributes : @[@"user", @"email", @"password"],
+					TMPModelValidatorType : @"required",
+					TMPModelValidatorOn: @[@"register"],
 			},
 			// username and password are required in "login" scenario
 			@{
-					FXModelValidatorAttributes : @[@"user", @"password"],
-					FXModelValidatorType : @"required",
-					FXModelValidatorOn: @[@"login"],
+					TMPModelValidatorAttributes : @[@"user", @"password"],
+					TMPModelValidatorType : @"required",
+					TMPModelValidatorOn: @[@"login"],
 			},
 	];
 }
@@ -322,8 +322,8 @@ For this reason, a special validator aliased safe is provided so that you can de
 -(NSArray *)rules {
 	return @[
 			@{
-					FXModelValidatorAttributes : @[@"title", @"description"],
-					FXModelValidatorType : @"safe",
+					TMPModelValidatorAttributes : @[@"title", @"description"],
+					TMPModelValidatorType : @"safe",
 			},
 	];
 }
@@ -362,7 +362,7 @@ You may usually consider the last recommendation above when you are developing l
 - Define a concrete model class by extending from the corresponding base model class. The concrete model classes should contain rules and logic that are specific for that application's part.
 
 ##API documentation
-Full API documentation is autogenerated from sources and can be accessed from [CocoaDocs](http://cocoadocs.org/docsets/FXModelValidation)
+Full API documentation is autogenerated from sources and can be accessed from [CocoaDocs](http://cocoadocs.org/docsets/TMPModelValidation)
 
 ##Copyrights
 This library is heavily based on PHP framework [Yii](http://www.yiiframework.com). That's way of working with models is proved and tested by time and many developers.

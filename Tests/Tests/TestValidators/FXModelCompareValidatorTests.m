@@ -1,6 +1,7 @@
+#import "NSObject+TMPModelValidation.h"
 #import "CommonHelper.h"
 
-@interface Form2: NSObject <FXModelValidation>
+@interface Form2: NSObject <TMPModelValidation>
 @property (nonatomic, assign) NSInteger value;
 @property (nonatomic, assign) NSInteger value_repeat;
 @property (nonatomic, assign) NSInteger value2;
@@ -9,14 +10,14 @@
 @implementation Form2
 @end
 
-SpecBegin(FXModelCompareValidator)
-		__block FXModelCompareValidator *validator;
+SpecBegin(TMPModelCompareValidator)
+		__block TMPModelCompareValidator *validator;
 		__block NSError *error;
 		__block Form2 *form;
 
 		describe(@"validateValue", ^{
 			beforeEach(^{
-				validator = [[FXModelCompareValidator alloc] init];
+				validator = [[TMPModelCompareValidator alloc] init];
 			});
 
 			describe(@"compareValue", ^{
@@ -25,19 +26,19 @@ SpecBegin(FXModelCompareValidator)
 				});
 
 				it(@"-should be valid", ^{
-					validator.operator = @"==";
+					validator.compareOperator = @"==";
 					error = [validator validateValue:@(100)];
 					expect(error).to.beNil();
 					error = [validator validateValue:@(101)];
 					expect(error).notTo.beNil();
 
-					validator.operator = @">";
+					validator.compareOperator = @">";
 					error = [validator validateValue:@(101)];
 					expect(error).to.beNil();
 					error = [validator validateValue:@(10)];
 					expect(error).notTo.beNil();
 
-					validator.operator = @">=";
+					validator.compareOperator = @">=";
 					error = [validator validateValue:@(101)];
 					expect(error).to.beNil();
 					error = [validator validateValue:@(100)];
@@ -45,13 +46,13 @@ SpecBegin(FXModelCompareValidator)
 					error = [validator validateValue:@(10)];
 					expect(error).notTo.beNil();
 
-					validator.operator = @"<";
+					validator.compareOperator = @"<";
 					error = [validator validateValue:@(10)];
 					expect(error).to.beNil();
 					error = [validator validateValue:@(101)];
 					expect(error).notTo.beNil();
 
-					validator.operator = @"<=";
+					validator.compareOperator = @"<=";
 					error = [validator validateValue:@(10)];
 					expect(error).to.beNil();
 					error = [validator validateValue:@(100)];
@@ -59,7 +60,7 @@ SpecBegin(FXModelCompareValidator)
 					error = [validator validateValue:@(101)];
 					expect(error).notTo.beNil();
 
-					validator.operator = @"!=";
+					validator.compareOperator = @"!=";
 					error = [validator validateValue:@(101)];
 					expect(error).to.beNil();
 					error = [validator validateValue:@(100)];
@@ -81,9 +82,9 @@ SpecBegin(FXModelCompareValidator)
 			it(@"-should be valid", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"value",
-								FXModelValidatorType : @"compare",
-								FXModelValidatorOperator: @">",
+								TMPModelValidatorAttributes : @"value",
+								TMPModelValidatorType : @"compare",
+								TMPModelValidatorOperator: @">",
 						},
 				] force:YES];
 
@@ -110,10 +111,10 @@ SpecBegin(FXModelCompareValidator)
 			it(@"-should be valid", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"value",
-								FXModelValidatorType : @"compare",
-								FXModelValidatorOperator: @">",
-								FXModelValidatorCompareAttribute: @"value2",
+								TMPModelValidatorAttributes : @"value",
+								TMPModelValidatorType : @"compare",
+								TMPModelValidatorOperator: @">",
+								TMPModelValidatorCompareAttribute: @"value2",
 						},
 				] force:YES];
 
@@ -140,11 +141,11 @@ SpecBegin(FXModelCompareValidator)
 			it(@"-should be valid", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"value",
-								FXModelValidatorType : @"compare",
-								FXModelValidatorOperator: @">",
-								FXModelValidatorCompareAttribute: @"value2",
-								FXModelValidatorCompareValue: @101,
+								TMPModelValidatorAttributes : @"value",
+								TMPModelValidatorType : @"compare",
+								TMPModelValidatorOperator: @">",
+								TMPModelValidatorCompareAttribute: @"value2",
+								TMPModelValidatorCompareValue: @101,
 						},
 				] force:YES];
 

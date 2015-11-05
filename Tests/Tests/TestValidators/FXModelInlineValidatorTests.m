@@ -1,6 +1,6 @@
 #import "CommonHelper.h"
 
-SpecBegin(FXModelInlineValidator)
+SpecBegin(TMPModelInlineValidator)
 		__block Form *form;
 
 		describe(@"action", ^{
@@ -11,8 +11,8 @@ SpecBegin(FXModelInlineValidator)
 			it(@"-inline block validator should add error", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType :^(id model, NSString *attribute, NSDictionary *params) {
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType :^(id model, NSString *attribute, NSDictionary *params) {
 									[model addError:attribute message:@"error from inline block validator"];
 								},
 						},
@@ -29,8 +29,8 @@ SpecBegin(FXModelInlineValidator)
 			it(@"-inline method validator should add error", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"action_valueString",
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"action_valueString",
 						},
 				] force:YES];
 
@@ -45,8 +45,8 @@ SpecBegin(FXModelInlineValidator)
 			it(@"-inline unknown validator should raise error", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"unknown",
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"unknown",
 						},
 				] force:YES];
 

@@ -1,6 +1,6 @@
 #import "CommonHelper.h"
 
-SpecBegin(FXModelFilterValidator)
+SpecBegin(TMPModelFilterValidator)
 		__block Form *form;
 
 		describe(@"filter", ^{
@@ -11,9 +11,9 @@ SpecBegin(FXModelFilterValidator)
 			it(@"-unknown filter should raise error", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"filter",
-								FXModelValidatorFilter : @"unknown",
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"filter",
+								TMPModelValidatorFilter : @"unknown",
 						},
 				] force:YES];
 
@@ -25,9 +25,9 @@ SpecBegin(FXModelFilterValidator)
 			it(@"-inline filter should trim valueString", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"filter",
-								FXModelValidatorFilter :^id(NSString *value, NSDictionary *params) {
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"filter",
+								TMPModelValidatorFilter :^id(NSString *value, NSDictionary *params) {
 									return [value stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
 								},
 						},
@@ -43,9 +43,9 @@ SpecBegin(FXModelFilterValidator)
 			it(@"-inline method filter should update valueString", ^{
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"filter",
-								FXModelValidatorFilter : @"filter_valueString",
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"filter",
+								TMPModelValidatorFilter : @"filter_valueString",
 						},
 				] force:YES];
 

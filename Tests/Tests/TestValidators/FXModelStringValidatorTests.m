@@ -1,12 +1,12 @@
 #import "CommonHelper.h"
 
-SpecBegin(FXModelStringValidator)
-		__block FXModelStringValidator *validator;
+SpecBegin(TMPModelStringValidator)
+		__block TMPModelStringValidator *validator;
 		__block NSError *error;
 
 		describe(@"length", ^{
 			beforeEach(^{
-				validator = [[FXModelStringValidator alloc] init];
+				validator = [[TMPModelStringValidator alloc] init];
 			});
 
 			it(@"-min and max should not be set, but length must be NSNumber and be 100", ^{
@@ -37,7 +37,7 @@ SpecBegin(FXModelStringValidator)
 
 		describe(@"validateValue", ^{
 			beforeEach(^{
-				validator = [[FXModelStringValidator alloc] init];
+				validator = [[TMPModelStringValidator alloc] init];
 			});
 
 			describe(@"check type", ^{

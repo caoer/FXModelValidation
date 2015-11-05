@@ -1,7 +1,7 @@
 #import "CommonHelper.h"
 
-SpecBegin(FXModelValidator)
-		__block FXModelValidator *validator;
+SpecBegin(TMPModelValidator)
+		__block TMPModelValidator *validator;
 		__block NSError *error;
 
 		NSDictionary *emptyValues = @{
@@ -24,7 +24,7 @@ SpecBegin(FXModelValidator)
 
 		describe(@"isEmpty", ^{
 			beforeEach(^{
-				validator = [[FXModelValidator alloc] init];
+				validator = [[TMPModelValidator alloc] init];
 			});
 
 			describe(@"check for nil", ^{

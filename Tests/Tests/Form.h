@@ -4,9 +4,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FXModelValidation.h"
+#import "TMPModelValidation.h"
 
-@interface Form : NSObject <FXModelValidation>
+@interface Form : NSObject <TMPModelValidation>
 @property (nonatomic, assign) BOOL valueBoolean;
 @property (nonatomic, assign) NSInteger valueInteger;
 @property (nonatomic, assign) CGFloat valueFloat;
@@ -18,13 +18,13 @@
 
 -(NSArray *)rules;
 
-//inline 'value' for FXModelDefaultValueValidator
+//inline 'value' for TMPModelDefaultValueValidator
 -(id)default_valueString:(id)value;
 
-//inline 'filter' for FXModelFilterValidator
+//inline 'filter' for TMPModelFilterValidator
 -(id)filter_valueString:(id)value params:(NSDictionary *)params;
 
-//inline 'action' for FXModelInlineValidator
+//inline 'action' for TMPModelInlineValidator
 -(void)action_valueString:(NSString *)attribute params:(NSDictionary *)params;
 
 @end

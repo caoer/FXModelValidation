@@ -1,27 +1,27 @@
 #import "CommonHelper.h"
 
-SpecBegin(FXModelDefaultValueValidator)
-		__block FXModelDefaultValueValidator *validator;
+SpecBegin(TMPModelDefaultValueValidator)
+		__block TMPModelDefaultValueValidator *validator;
 		__block Form *form;
 
 		describe(@"validateValue", ^{
 			beforeEach(^{
-				validator = [[FXModelDefaultValueValidator alloc] init];
+				validator = [[TMPModelDefaultValueValidator alloc] init];
 				form = [[Form alloc] init];
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueBoolean",
-								FXModelValidatorType : @"required",
+								TMPModelValidatorAttributes : @"valueBoolean",
+								TMPModelValidatorType : @"required",
 						},
 						@{
-								FXModelValidatorAttributes : @"valueInteger,valueFloat",
-								FXModelValidatorType : @"required",
-								FXModelValidatorOn : @[@"create"],
+								TMPModelValidatorAttributes : @"valueInteger,valueFloat",
+								TMPModelValidatorType : @"required",
+								TMPModelValidatorOn : @[@"create"],
 						},
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"trim",
-								FXModelValidatorOn : @[@"update"],
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"trim",
+								TMPModelValidatorOn : @[@"update"],
 						},
 				] force:YES];
 			});

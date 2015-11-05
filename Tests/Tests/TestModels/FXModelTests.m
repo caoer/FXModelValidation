@@ -24,7 +24,7 @@ SpecBegin(FXFormModel)
 
 			describe(@"validationInit", ^{
 				describe(@"not called", ^{
-					it(@"-should not have FXModel methods", ^{
+					it(@"-should not have TMPModel methods", ^{
 						expect(form).notTo.respondTo(@selector(addError:message:));
 						expect(form).notTo.respondTo(@selector(hasErrors));
 						expect(form).notTo.respondTo(@selector(hasErrors:));
@@ -39,7 +39,7 @@ SpecBegin(FXFormModel)
 				});
 
 				describe(@"called", ^{
-					it(@"-should attach once and have all FXModel methods", ^{
+					it(@"-should attach once and have all TMPModel methods", ^{
 						expect([form validationInit]).to.equal(YES);
 						expect(form).respondTo(@selector(addError:message:));
 						expect(form).respondTo(@selector(hasErrors));
@@ -116,7 +116,7 @@ SpecBegin(FXFormModel)
 
 			describe(@"validationInit", ^{
 				describe(@"called", ^{
-					it(@"-should attach once and have all FXModel methods", ^{
+					it(@"-should attach once and have all TMPModel methods", ^{
 						expect([[object1 class] validationInit]).to.equal(YES);
 						expect(object1).respondTo(@selector(addError:message:));
 						expect(object1).respondTo(@selector(hasErrors));
@@ -138,7 +138,7 @@ SpecBegin(FXFormModel)
 
 			describe(@"validationInitWithRules", ^{
 				describe(@"called", ^{
-					it(@"-should attach once and have all FXModel methods", ^{
+					it(@"-should attach once and have all TMPModel methods", ^{
 						expect([[object2 class] validationInitWithRules:@[]]).to.equal(YES);
 						expect(object2).respondTo(@selector(addError:message:));
 						expect(object2).respondTo(@selector(hasErrors));
@@ -219,18 +219,18 @@ SpecBegin(FXFormModel)
 				form = [[Form alloc] init];
 				[form validationInitWithRules:@[
 						@{
-								FXModelValidatorAttributes : @"valueBoolean",
-								FXModelValidatorType : @"required",
+								TMPModelValidatorAttributes : @"valueBoolean",
+								TMPModelValidatorType : @"required",
 						},
 						@{
-								FXModelValidatorAttributes : @"valueInteger,valueFloat",
-								FXModelValidatorType : @"required",
-								FXModelValidatorOn : @[@"create"],
+								TMPModelValidatorAttributes : @"valueInteger,valueFloat",
+								TMPModelValidatorType : @"required",
+								TMPModelValidatorOn : @[@"create"],
 						},
 						@{
-								FXModelValidatorAttributes : @"valueString",
-								FXModelValidatorType : @"trim",
-								FXModelValidatorOn : @[@"update"],
+								TMPModelValidatorAttributes : @"valueString",
+								TMPModelValidatorType : @"trim",
+								TMPModelValidatorOn : @[@"update"],
 						},
 				] force:YES];
 			});
@@ -445,12 +445,12 @@ SpecBegin(FXFormModel)
 
 			it(@"-should return all validators and totally 3", ^{
 				NSArray *result = [form getValidators];
-				FXModelValidator *validator;
+				TMPModelValidator *validator;
 				expect(result).notTo.beNil();
 				expect([result count]).to.equal(3);
-				expect(result[0]).to.beKindOf([FXModelRequiredValidator class]);
-				expect(result[1]).to.beKindOf([FXModelRequiredValidator class]);
-				expect(result[2]).to.beKindOf([FXModelTrimFilter class]);
+				expect(result[0]).to.beKindOf([TMPModelRequiredValidator class]);
+				expect(result[1]).to.beKindOf([TMPModelRequiredValidator class]);
+				expect(result[2]).to.beKindOf([TMPModelTrimFilter class]);
 
 				validator = result[0];
 				expect(validator.on).to.equal(@[]);
@@ -476,14 +476,14 @@ SpecBegin(FXFormModel)
 				NSArray *result = [form getActiveValidators];
 				expect(result).notTo.beNil();
 				expect([result count]).to.equal(1);
-				expect(result[0]).to.beKindOf([FXModelRequiredValidator class]);
+				expect(result[0]).to.beKindOf([TMPModelRequiredValidator class]);
 			});
 
 			it(@"-should return 1 active validator for valueBoolean and 0 active validator for valueString", ^{
 				NSArray *result = [form getActiveValidators:@"valueBoolean"];
 				expect(result).notTo.beNil();
 				expect([result count]).to.equal(1);
-				expect(result[0]).to.beKindOf([FXModelRequiredValidator class]);
+				expect(result[0]).to.beKindOf([TMPModelRequiredValidator class]);
 
 				result = [form getActiveValidators:@"valueString"];
 				expect(result).notTo.beNil();

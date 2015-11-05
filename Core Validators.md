@@ -1,11 +1,11 @@
 #Core Validators
-FXModelValidation provides a set of commonly used core validators. Instead of using lengthy validator class names, you may use aliases to specify the use of these core validators. For example, you can use the alias _required_ to refer to the _FXModelRequiredValidator_ class:
+TMPModelValidation provides a set of commonly used core validators. Instead of using lengthy validator class names, you may use aliases to specify the use of these core validators. For example, you can use the alias _required_ to refer to the _TMPModelRequiredValidator_ class:
 ```object-c
 -(NSArray *)rules {				
 	return @[
 		@{
-			FXModelValidatorAttributes : @"email,password",
-			FXModelValidatorType : @"required",
+			TMPModelValidatorAttributes : @"email,password",
+			TMPModelValidatorType : @"required",
 		},
 	];
 }
@@ -19,15 +19,15 @@ In the following, we will describe the main usage and properties of every core v
 	return @[
 		@{
 			// checks if "selected" is either 0 or 1
-			FXModelValidatorAttributes : @"selected",
-			FXModelValidatorType : @"boolean",
+			TMPModelValidatorAttributes : @"selected",
+			TMPModelValidatorType : @"boolean",
 		},
 		@{
 			// checks if "deleted" is either "sure" or "not sure"
-			FXModelValidatorAttributes : @"selected",
-			FXModelValidatorType : @"boolean",
-			FXModelValidatorTrueValue: @"sure",
-			FXModelValidatorFalseValue: @"not sure",
+			TMPModelValidatorAttributes : @"selected",
+			TMPModelValidatorType : @"boolean",
+			TMPModelValidatorTrueValue: @"sure",
+			TMPModelValidatorFalseValue: @"not sure",
 		},
 	];
 }
@@ -43,15 +43,15 @@ This validator checks if the input value is a boolean.
 	return @[
 		@{
 			// validates if the value of "password" attribute equals to that of "password_repeat"
-			FXModelValidatorAttributes : @"password",
-			FXModelValidatorType : @"compare",
+			TMPModelValidatorAttributes : @"password",
+			TMPModelValidatorType : @"compare",
 		},
 		@{
 			// validates if age is greater than or equal to 30
-			FXModelValidatorAttributes : @"age",
-			FXModelValidatorType : @"compare",
-			FXModelValidatorCompareValue: @30,
-			FXModelValidatorOperator: @">=",
+			TMPModelValidatorAttributes : @"age",
+			TMPModelValidatorType : @"compare",
+			TMPModelValidatorCompareValue: @30,
+			TMPModelValidatorOperator: @">=",
 		},
 	];
 }
@@ -75,21 +75,21 @@ This validator compares the specified input value with another one and make sure
 	return @[
 		@{
 			// set "age" to be null if it is empty
-			FXModelValidatorAttributes : @"age",
-			FXModelValidatorType : @"default",
-			FXModelValidatorValue : [NSNull null]
+			TMPModelValidatorAttributes : @"age",
+			TMPModelValidatorType : @"default",
+			TMPModelValidatorValue : [NSNull null]
 		},
 		@{
 			 // set "country" to be "USA" if it is empty
-			FXModelValidatorAttributes : @"country",
-			FXModelValidatorType : @"default",
-			FXModelValidatorValue : @"USA"
+			TMPModelValidatorAttributes : @"country",
+			TMPModelValidatorType : @"default",
+			TMPModelValidatorValue : @"USA"
 		},
 		@{
 			 // assign "from" and "to" with a today, if they are empty
-			FXModelValidatorAttributes : @"from,to",
-			FXModelValidatorType : @"default",
-			FXModelValidatorValue : ^id(id model, NSString *attribute) {
+			TMPModelValidatorAttributes : @"from,to",
+			TMPModelValidatorType : @"default",
+			TMPModelValidatorValue : ^id(id model, NSString *attribute) {
 				return [NSDate date];			
 			}
 		},				
@@ -105,7 +105,7 @@ This validator does not validate data. Instead, it assigns a default value to th
 	return value;
 }
 ```
-> Info: How to determine if a value is empty or not is a separate topic covered in the [Empty Values](https://github.com/plandem/FXModelValidation/blob/master/Validating%20Input.md) section
+> Info: How to determine if a value is empty or not is a separate topic covered in the [Empty Values](https://github.com/plandem/TMPModelValidation/blob/master/Validating%20Input.md) section
 
 ##email
 ```object-c
@@ -113,8 +113,8 @@ This validator does not validate data. Instead, it assigns a default value to th
 	return @[
 		@{
 			// checks if "email" is a valid email address
-			FXModelValidatorAttributes : @"email",
-			FXModelValidatorType : @"email",
+			TMPModelValidatorAttributes : @"email",
+			TMPModelValidatorType : @"email",
 		},
 	];
 }
@@ -127,7 +127,7 @@ This validator checks if the input value is a valid email address.
 
 ##filter
 ```object-c
-@interface MyForm: NSObject <FXModelValidation>
+@interface MyForm: NSObject <TMPModelValidation>
 @end
 
 @implementation MyForm
@@ -135,25 +135,25 @@ This validator checks if the input value is a valid email address.
 	return @[
 		@{
 			// trim "username" and "email" inputs
-			FXModelValidatorAttributes : @"username,email",
-			FXModelValidatorType : @"trim",
+			TMPModelValidatorAttributes : @"username,email",
+			TMPModelValidatorType : @"trim",
 		},	
 		@{
 			// use inline filter method to filter  "username" and "email"
-			FXModelValidatorAttributes : @"username,email",
-			FXModelValidatorType : @"filter",
-			FXModelValidatorFilter: @"filterValue",
-			FXModelValidatorSkipOnArray: @YES,
+			TMPModelValidatorAttributes : @"username,email",
+			TMPModelValidatorType : @"filter",
+			TMPModelValidatorFilter: @"filterValue",
+			TMPModelValidatorSkipOnArray: @YES,
 		},
 		@{
 			// use inline filter with block to filter "username" and "email"
-			FXModelValidatorAttributes : @"username,email",
-			FXModelValidatorType : @"filter",
-			FXModelValidatorFilter: ^id(id value, NSDictionary* params) {
+			TMPModelValidatorAttributes : @"username,email",
+			TMPModelValidatorType : @"filter",
+			TMPModelValidatorFilter: ^id(id value, NSDictionary* params) {
 				// process value
 				return newValue;
 			},
-			FXModelValidatorSkipOnArray: @YES,
+			TMPModelValidatorSkipOnArray: @YES,
 		},				
 	];
 }
@@ -178,9 +178,9 @@ This validator does not validate data. Instead, it applies a filter on the input
 	return @[
 		@{
 			// checks if "level" is 1, 2 or 3
-			FXModelValidatorAttributes : @"level",
-			FXModelValidatorType : @"in",
-			FXModelValidatorRange: @[@1, @2, @3],
+			TMPModelValidatorAttributes : @"level",
+			TMPModelValidatorType : @"in",
+			TMPModelValidatorRange: @[@1, @2, @3],
 		},
 	];
 }
@@ -198,9 +198,9 @@ This validator checks if the input value can be found among the given list of va
 	return @[
 		@{
 			// checks if "username" starts with a letter and contains only word characters
-			FXModelValidatorAttributes : @"username",
-			FXModelValidatorType : @"match",
-			FXModelValidatorPattern: @"^[a-z]\w*$",
+			TMPModelValidatorAttributes : @"username",
+			TMPModelValidatorType : @"match",
+			TMPModelValidatorPattern: @"^[a-z]\w*$",
 		},
 	];
 }
@@ -216,8 +216,8 @@ This validator checks if the input value matches the specified regular expressio
 	return @[
 		@{
 			// checks if "salary" is a number
-			FXModelValidatorAttributes : @"salary",
-			FXModelValidatorType : @"number",
+			TMPModelValidatorAttributes : @"salary",
+			TMPModelValidatorType : @"number",
 		},
 	];
 }
@@ -235,8 +235,8 @@ This validator checks if the input value is a number.
 	return @[
 		@{
 			// checks if both "username" and "password" are not empty
-			FXModelValidatorAttributes : @"username,password",
-			FXModelValidatorType : @"required",
+			TMPModelValidatorAttributes : @"username,password",
+			TMPModelValidatorType : @"required",
 		},
 	];
 }
@@ -246,7 +246,7 @@ This validator checks if the input value is provided and not empty.
 
 - **requiredValue**: the desired value that the input should be. If not set, it means the input should not be empty.
 
-> Info: How to determine if a value is empty or not is a separate topic covered in the [Empty Values](https://github.com/plandem/FXModelValidation/blob/master/Validating%20Input.md) section.
+> Info: How to determine if a value is empty or not is a separate topic covered in the [Empty Values](https://github.com/plandem/TMPModelValidation/blob/master/Validating%20Input.md) section.
 
 ##safe
 ```object-c
@@ -254,8 +254,8 @@ This validator checks if the input value is provided and not empty.
 	return @[
 		@{
 			// marks "description" to be a safe attribute
-			FXModelValidatorAttributes : @"description",
-			FXModelValidatorType : @"safe",
+			TMPModelValidatorAttributes : @"description",
+			TMPModelValidatorType : @"safe",
 		},
 	];
 }
@@ -269,8 +269,8 @@ This validator does not perform data validation. Instead, it is used to mark an 
 	return @[
 		@{
 			// checks if "username" is a string whose length is between 4 and 24
-			FXModelValidatorAttributes : @"username",
-			FXModelValidatorType : @"string",
+			TMPModelValidatorAttributes : @"username",
+			TMPModelValidatorType : @"string",
 		},
 	];
 }
@@ -291,8 +291,8 @@ This validator checks if the input value is a valid string with certain length.
 	return @[
 		@{
 			 // trims the white spaces surrounding "username" and "email"
-			FXModelValidatorAttributes : @"username,email",
-			FXModelValidatorType : @"trim",
+			TMPModelValidatorAttributes : @"username,email",
+			TMPModelValidatorType : @"trim",
 		},
 	];
 }
@@ -306,8 +306,8 @@ This validator does not perform data validation. Instead, it will trim the surro
 	return @[
 		@{
 			// checks if "website" is a valid URL. Prepend "http://" to the "website" attribute if it does not have a URI scheme
-			FXModelValidatorAttributes : @"website",
-			FXModelValidatorType : @"url",
+			TMPModelValidatorAttributes : @"website",
+			TMPModelValidatorType : @"url",
 		},
 	];
 }
