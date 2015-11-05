@@ -145,7 +145,7 @@ NSString *const TMPModelValidatorWhen = @"when";
 		free(propertyList);
 
 		//get self properties
-		Class className = (([NSStringFromClass([self class]) containsString:@"-#TMPModel#-"]) ? [self superclass] : [self class]);
+		Class className = (([NSStringFromClass([self class]) rangeOfString:@"-#TMPModel#-"]).location != NSNotFound ? [self superclass] : [self class]);
 		propertyList = class_copyPropertyList(className, &propertyCount);
 		NSMutableSet *selfProperties = [NSMutableSet set];
 		for (unsigned int i = 0; i < propertyCount; i++) {
@@ -173,7 +173,7 @@ NSString *const TMPModelValidatorWhen = @"when";
 
 -(BOOL)validate:(NSArray *)attributes clearErrors:(BOOL)clearErrors {
 	if(clearErrors)
-		[self clearErrors:nil];
+		[self clearErrors:attributes];
 
 	if([self shouldValidateModel]) {
 		NSDictionary *scenarios = [self scenarioList];
@@ -353,15 +353,22 @@ NSString *const TMPModelValidatorWhen = @"when";
 	[self clearErrors:nil];
 }
 
--(void)clearErrors:(NSString *)attribute {
+-(void)clearErrors:(id)attribute {
+	NSMutableDictionary *errors = [self getValidationErrors];
+	NSUInteger errorsBefore = [errors count];
+
 	if(attribute == nil) {
-		if([[self getValidationErrors] count]) {
-			[self willChangeValueForKey:@"errors"];
-			[self willChangeValueForKey:@"hasErrors"];
-			[[self getValidationErrors] removeAllObjects];
-			[self didChangeValueForKey:@"errors"];
-			[self didChangeValueForKey:@"hasErrors"];
+		[errors removeAllObjects];
+	} else if([attribute isKindOfClass:[NSString class]] && errors[(NSString *)attribute]) {
+		[errors removeObjectForKey:attribute];
+	} else if([attribute isKindOfClass:[NSArray class]]) {
+		for(NSString *name in (NSArray *)attribute) {
+			if(errors[name]) {
+				[errors removeObjectForKey:name];
+			}
 		}
+		}
+
 	} else if([self getValidationErrors][attribute]) {
 		[self willChangeValueForKey:@"errors"];
 		[self willChangeValueForKey:@"hasErrors"];
@@ -414,7 +421,7 @@ NSString *const TMPModelValidatorWhen = @"when";
 
 -(void)onUnsafeAttribute:(NSString *)attribute value:(id)value {
 #if DEBUG
-	NSLog(@"Failed to set unsafe attribute '%@' in %@", attribute, [self class]);
+	NSLog(@"Failed to set unsafe attribute '%@' in %@", attribute, [self superclass]);
 #endif
 }
 

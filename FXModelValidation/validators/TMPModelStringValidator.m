@@ -3,6 +3,7 @@
 // Copyright (c) 2014 Andrey Gayvoronsky. All rights reserved.
 //
 
+#import <objc/message.h>
 #import "TMPModelStringValidator.h"
 
 typedef NS_OPTIONS(NSUInteger, FXFormStringValidatorComporatorID) {
@@ -95,6 +96,8 @@ typedef NS_OPTIONS(NSUInteger, FXFormStringValidatorComporatorID) {
 }
 
 -(NSError *)compareValue:(id)value comporator:(FXFormStringValidatorComporatorID)comparatorID {
+	NSUInteger (*callback)(id, SEL) = (NSUInteger (*)(id, SEL))objc_msgSend;
+
 	switch(comparatorID) {
 		case FXFormStringValidatorComparatorType:
 			if (!([value isKindOfClass:[NSString class]])) {
@@ -106,7 +109,7 @@ typedef NS_OPTIONS(NSUInteger, FXFormStringValidatorComporatorID) {
 			}
 			break;
 		case FXFormStringValidatorComparatorMin:
-			if (_min >= 0 && ([value length] < _min)) {
+			if (_min >= 0 && (callback(value, @selector(length)) < _min)) {
 				return [NSError errorWithDomain:FXFormValidatorErrorDomain
 										   code:0
 									   userInfo:@{
@@ -116,7 +119,7 @@ typedef NS_OPTIONS(NSUInteger, FXFormStringValidatorComporatorID) {
 			}
 			break;
 		case FXFormStringValidatorComparatorMax:
-			if(_max >= 0 && ([value length] > _max)) {
+			if(_max >= 0 && (callback(value, @selector(length)) > _max)) {
 				return [NSError errorWithDomain:FXFormValidatorErrorDomain
 										   code:0
 									   userInfo:@{
@@ -126,12 +129,12 @@ typedef NS_OPTIONS(NSUInteger, FXFormStringValidatorComporatorID) {
 			}
 			break;
 		case FXFormStringValidatorComparatorEqual:
-			if(_lengthLimitation && ([value length] != [_lengthLimitation integerValue])) {
+			if(_length && (callback(value, @selector(length)) != [_length integerValue])) {
 				return [NSError errorWithDomain:FXFormValidatorErrorDomain
 										   code:0
 									   userInfo:@{
 											   NSLocalizedDescriptionKey: self.notEqual,
-											   @"{length}": _lengthLimitation,
+											   @"{length}": _length,
 									   }];
 			}
 			break;

@@ -78,7 +78,6 @@
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	[(id<TMPModel>)_model clearErrors:keyPath];
 	[(id<TMPModel>)_model validate:@[keyPath]];
 }
 @end
